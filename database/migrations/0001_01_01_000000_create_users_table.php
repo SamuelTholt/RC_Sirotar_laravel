@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -19,6 +21,9 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->unsignedBigInteger('role_id')->default(3);
+            $table->foreign('role_id')->references('id')->on('role')->onDelete('cascade');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
@@ -35,6 +40,16 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+
+        DB::table('users')->insert([
+            'id' => 1,
+            'role_id' => 1,
+            'name' => 'RC_Admin',
+            'email' => 'rc_admin@rcsirotar.sk',
+            'password' => Hash::make('adminRCS123'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 
     /**

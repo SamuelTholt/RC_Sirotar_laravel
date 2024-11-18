@@ -45,4 +45,27 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function isAdmin() {
+        return $this->hasRole('Hlavný Admin') || $this->hasRole('Admin');
+    }
+
+    public function isHlavnyAdmin() {
+        return $this->hasRole('Hlavný Admin');
+    }
+
+    public function hasRole($role)
+    {
+        return $this->role()->where('nazov_role', $role)->exists();
+    }
+
+    public function hasRoleId($roleId)
+    {
+        return $this->role_id == $roleId;
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }

@@ -153,7 +153,7 @@ body {
     display: none;
 }
 
-@media screen and (max-width: 885px) {
+@media screen and (max-width: 1150px) {
     .menuList {
         width: 100%;
         max-height: 0;
@@ -204,6 +204,15 @@ footer img {
     }
 }
 
+
+vypln_medzere_home {
+    margin-top: -1000px;
+}
+@media (min-height: 950px) {
+    vypln_medzere_home {
+        margin-top: -1100px;
+    }
+}
 
 .center {
     text-align: center;

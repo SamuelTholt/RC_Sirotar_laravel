@@ -62,20 +62,57 @@
                 <li class="nav-item">
                     <a href="#kontakt"><i class="fa-solid fa-phone" style="color: #35A0CE7F;"></i> Kontakt</a>
                 </li>
+
+                @if(Auth::user())
+                    <div class="dropdown" style="margin-top: 10px">
+                        <button class="btn btn-secondary dropdown-toggle" type="text" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-right-to-bracket"></i> {{ Auth::user()->name }}
+                            <span class="text-sm text-gray-500">
+                            [{{ Auth::user()->role->nazov_role }}]
+                        </span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="{{ route('profile.edit') }}">
+                                    {{ __('Profil') }}
+                                </a></li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    Odhlásiť sa
+                                </a>
+                            </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </ul>
+                    </div>
+                @else
+                    <div class="dropdown" style="margin-top: 10px">
+                        <button class="btn btn-secondary dropdown-toggle" type="text" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-right-to-bracket"></i> Login/Register
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="{{url('login')}}">Prihlásiť sa</a></li>
+                            <li><a class="dropdown-item" href="{{url('register')}}">Zaregistrovať sa</a></li>
+                        </ul>
+                    </div>
+                @endif
             </ul>
         </div>
     </nav>
 </header>
 
-<section id="home" class="container-fluid p-0" style="margin-top: 100px;">
-    <div style="position: relative; height: 230vh;">
-        <img src="{{asset('assets/images/family_logo_v3.jpg')}}" style="position: absolute ;width: 100%; height: 50%; object-fit: cover;">
+<section id="home" class="container-fluid p-0">
+    <div style="position: relative; width: 100%; height: 100vh; overflow: hidden;">
+        <img src="{{asset('assets/images/family_logo_v3.jpg')}}"
+             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
     </div>
 </section>
 
 
 <!-- O nás -->
-<section id="about_us" class="section py-5 text-white simple_waves-shape_divider-top" style="background-color: #C95546; margin-top: -1100px">
+<section id="about_us" class="section py-5 text-white simple_waves-shape_divider-top" style="background-color: #C95546;">
     <div class="container grow-animation">
 
         <div class="row justify-content-center text-center mb-4">
