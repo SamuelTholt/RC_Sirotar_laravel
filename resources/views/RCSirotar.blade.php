@@ -67,59 +67,15 @@
     </nav>
 </header>
 
-<section id="home" class="container py-4" style="margin-top: 100px;">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="mb-4 pulsating">
-                <!-- Obraz 1 -->
-                <img src="{{asset('assets/images/komunita.jpg')}}"
-                     alt="Komunita" class="img-fluid image-style shadow-community" style="object-fit: cover;">
-            </div>
-        </div>
-
-        <div class="slide-animation col-md-4 text-center">
-            <!-- Obraz 2 -->
-            <img src="{{asset('assets/images/logo_sirotar.png')}}"
-                 alt="Logo RC Sirotár" class="img-fluid centered-image"> <!-- No image-style class here -->
-        </div>
-
-        <div class="col-md-4">
-            <div class="mb-4 pulsating">
-                <!-- Obraz 3 -->
-                <img src="{{asset('assets/images/rast.jpg')}}"
-                     alt="Rast" class="img-fluid image-style shadow-growth" style="object-fit: cover;">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Druhá sekcia - nadpis -->
-<section class="container py-4">
-    <div class="row text-center">
-        <div class="col">
-            <h2 class="slide-animation" style="text-align:center; font-size:50px;">
-                <span style="color:#C95546;"><span style="font-weight:bold;">R</span></span>odinné
-                <span style="color:#34A0CE;"><span style="font-weight:700;">C</span></span>entrum
-                <span style="color:#80BA42;"><span style="font-weight:bold;">SIROTÁR</span></span>
-            </h2>
-        </div>
-    </div>
-</section>
-
-<!-- Tretia sekcia - väčší obraz -->
-<section class="container py-4">
-    <div class="col">
-        <div class="pulsating">
-            <!-- Obraz 3 -->
-            <img src="{{asset('assets/images/duchovne_zdravie.jpg')}}"
-                 alt="Rast" class="img-fluid image-style shadow-spiritual-health" style="object-fit: cover;">
-        </div>
+<section id="home" class="container-fluid p-0" style="margin-top: 100px;">
+    <div style="position: relative; height: 230vh;">
+        <img src="{{asset('assets/images/family_logo_v3.jpg')}}" style="position: absolute ;width: 100%; height: 50%; object-fit: cover;">
     </div>
 </section>
 
 
 <!-- O nás -->
-<section id="about_us" class="section py-5 text-white dripping_paint-shape_divider-top" style="background-color: #93B660; margin-top: 100px;">
+<section id="about_us" class="section py-5 text-white simple_waves-shape_divider-top" style="background-color: #C95546; margin-top: -1100px">
     <div class="container grow-animation">
 
         <div class="row justify-content-center text-center mb-4">
@@ -262,7 +218,7 @@
 
 
 <!-- Galéria -->
-<section id="gallery" class="pt-5 pb-5 paint-shape_divider-top" style="background-color: #C95546;">
+<section id="gallery" class="pt-5 pb-5 paint-shape_divider-top" style="background-color: #93B660">
     <h2 class="display-4 text-shadow text-center hidden" style="text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039); margin-top: 50px; margin-bottom: 50px">
         <span style="font-weight:bold; color:#F4FEFD;"><span>Galéria <i class="fa-solid fa-camera fa-lg" style="color: #ffffff;"></i></span></span>
     </h2>
@@ -287,7 +243,7 @@
 </section>
 
 <!-- Tím -->
-<section id="team" class="paint-shape_divider-btm">
+<section id="team" class="shapedividers_com-5827">
     <h2 class="display-4 text-shadow text-center hidden1" style="text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039); margin-top: 150px; margin-bottom: 50px">
         <span style="font-weight:bold; color:#80BA42;"><i class="fa-solid fa-users fa-lg"></i><span> Náš tím</span></span>
     </h2>
