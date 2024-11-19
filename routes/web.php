@@ -1,15 +1,14 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SekcieController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('RCSirotar');
 });
-
-Route::get('/home', function () {
-    return view('RCSirotar');
-})->name('home');
+Route::get('/', [SekcieController::class, 'index'])->name('home.show');
+Route::get('/home', [SekcieController::class, 'index'])->name('home.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -117,8 +117,8 @@
 
         <div class="row justify-content-center text-center mb-4">
             <div class="col-md-8">
-                <h2 class="display-4 text-shadow hidden" style="text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039); margin-top: 50px;">
-                    <span style="font-weight:bold; color:#F4FEFD;"><i class="fa-solid fa-puzzle-piece fa-lg" style="color: #ffffff;"></i><span> O nás - Aktivity</span></span>
+                <h2 class="{{$sekcia_about_us->typografia_nadpisu}} text-shadow hidden" style="font-family: {{$sekcia_about_us->font_nadpisu}}; text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039); margin-top: 50px;">
+                    <span style="font-weight:bold; color:{{$sekcia_about_us->farba_nadpisu}};"><i class="{{$sekcia_about_us->ikonka_nadpisu}}" style="color: {{$sekcia_about_us->farba_ikonky_nadpisu}};"></i><span> {{$sekcia_about_us->nadpis}} </span></span>
                 </h2>
             </div>
         </div>
@@ -126,10 +126,8 @@
 
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <p class="lead hidden"  style="font-family: 'Inknut Antiqua', serif; font-size:25px; line-height:1.8em; text-align:center; color: black">
-                    Rodinné centrum <strong><b><em>Sirotár</em></b></strong> pod sebou združuje rôzne aktivity.
-                    V rámci neho sme otvorili <strong><b><em>herňu Rodinného centra a Átrium</em></b></strong>, ktoré sú určené mamičkám s menšími deťmi.
-                    Cieľom je vytvoriť priestor pre lepšie prežívanie materstva, osobný aj duchovný rozvoj a sebarealizáciu mamičiek. Rovnako aj vytvoriť priestor pre zdravú socializáciu ich ratolestí.
+                <p class="lead hidden"  style="font-family: {{$sekcia_about_us->font_textu}}; font-size:{{$sekcia_about_us->velkost_textu}}px; line-height:1.8em; text-align:center; color: {{$sekcia_about_us->farba_textu}}">
+                    {!! $sekcia_about_us->text  !!}
                 </p>
             </div>
         </div>
@@ -142,51 +140,39 @@
             <div class="row justify-content-between">
                 <!-- Herňa -->
                 <div class="col-md-6">
-                    <h2 class="display-4 text-shadow hidden" style="text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039)">
-                        <span style="font-weight:bold; color:#34A0CE;">Herňa</span></span>
+                    <h2 class="{{$sekcia_act_herna->typografia_nadpisu}} text-shadow hidden" style="text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039)">
+                        <span style="font-weight:bold; color:{{$sekcia_act_herna->farba_nadpisu}};"><i class="{{$sekcia_act_herna->ikonka_nadpisu}}" style="color: {{$sekcia_act_herna->farba_ikonky_nadpisu}};"></i><span> {{$sekcia_act_herna->nadpis}} </span></span>
                     </h2>
-                    <p class="lead hidden"  style="font-family: 'Inknut Antiqua', serif; font-size:20px; line-height:1.8em; text-align:justify; color: black">
-                        Herňa je otvorená pre mamičky a deti každú stredu (okrem prázdnin a sviatkov) od 9:00 h do 12:00 h, program (detská aktivita alebo prednáška) začína o 10:00 h spoločnou modlitbou. Počas programu je k dispozícii spovedná služba a knižnica.
+                    <p class="lead hidden"  style="font-family: {{$sekcia_act_herna->font_textu}}; font-size:{{$sekcia_act_herna->velkost_textu}}px; line-height:1.8em; text-align:justify; color: {{$sekcia_act_herna->farba_textu}}">
+                        {!! $sekcia_act_herna->text  !!}
                     </p>
-                    <p class="lead hidden"  style="font-family: 'Inknut Antiqua', serif; font-size:20px; line-height:1.8em; text-align:justify; color: black">
-                        <b><u>Aktivity pre deti:</u></b>
+                    <p class="lead hidden"  style="font-family: {{$sekcia_act_herna_deti->font_nadpisu}}; font-size:{{$sekcia_act_herna_deti->typografia_nadpisu}}; line-height:1.8em; text-align:justify; color: {{$sekcia_act_herna_deti->farba_nadpisu}}">
+                        {!! $sekcia_act_herna_deti->nadpis  !!}
                     </p>
-                    <ul class="lead hidden"  style="font-family: 'Inknut Antiqua', serif; font-size:20px; line-height:1.8em; text-align:justify; color: black">
-                        <li>Hravá angličtina</li>
-                        <li>Montessori hernička</li>
-                        <li>Detské tvorivé dielne</li>
-                        <li>Klavírna víla – Boinka</li>
-                        <li>Katechézy Dobrého pastiera</li>
+                    <ul class="lead hidden"  style="font-family: {{$sekcia_act_herna_deti->font_textu}}; font-size:{{$sekcia_act_herna_deti->velkost_textu}}px; line-height:1.8em; text-align:justify; color: {{$sekcia_act_herna_deti->farba_textu}}">
+                        {!! $sekcia_act_herna_deti->text  !!}
                     </ul>
 
-                    <p class="lead hidden"  style="font-family: 'Inknut Antiqua', serif; font-size:20px; line-height:1.8em; text-align:justify; color: black">
-                        <b><u>Prednášky pre mamičky:</u></b>
+                    <p class="lead hidden"  style="font-family: {{$sekcia_act_herna_prednasky->font_nadpisu}}; font-size:{{$sekcia_act_herna_prednasky->typografia_nadpisu}}; line-height:1.8em; text-align:justify; color: {{$sekcia_act_herna_prednasky->farba_nadpisu}}">
+                        {!! $sekcia_act_herna_prednasky->nadpis  !!}
                     </p>
-                    <ul class="lead hidden"  style="font-family: 'Inknut Antiqua', serif; font-size:20px; line-height:1.8em; text-align:justify; color: black">
-                        <li>Fyzioterepeutka Radka</li>
-                        <li>Učíme sa rozprávať s pani logopedičkou</li>
-                        <li>Svedectvá mnohodetných rodín</li>
-                        <li>Príprava na pôrod s dulou</li><li>Staráme sa o seba s kozmetičkou</li>
-                        <li>Ženský cyklus – ako sa v ňom dobre vyznať</li>
-                        <li>Zdravie našich detí s pani pediatričkou</li>
-                        <li>O domácom vzdelávaní</li>
-                        <li>O kváskovaní a iné…</li>
+                    <ul class="lead hidden"  style="font-family: {{$sekcia_act_herna_prednasky->font_textu}}; font-size:{{$sekcia_act_herna_prednasky->velkost_textu}}px; line-height:1.8em; text-align:justify; color: {{$sekcia_act_herna_prednasky->farba_textu}}">
+                        {!! $sekcia_act_herna_prednasky->text  !!}
                     </ul>
                 </div>
+
                 <!--  Átrium -->
                 <div class="col-md-6">
-                    <h2 class="display-4 text-shadow hidden" style="text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039)">
-                        <span style="font-weight:bold; color:#34A0CE;">Átrium</span></span>
+                    <<h2 class="{{$sekcia_act_atrium->typografia_nadpisu}} text-shadow hidden" style="text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039)">
+                        <span style="font-weight:bold; color:{{$sekcia_act_atrium->farba_nadpisu}};"><i class="{{$sekcia_act_atrium->ikonka_nadpisu}}" style="color: {{$sekcia_act_atrium->farba_ikonky_nadpisu}};"></i><span> {{$sekcia_act_atrium->nadpis}} </span></span>
                     </h2>
-                    <p class="lead hidden"  style="font-family: 'Inknut Antiqua', serif; font-size:20px; line-height:1.8em; text-align:justify; color: black">
-                        Átrium je miesto, kde sa deti zoznamujú so základnými pravdami viery cez koncept Katechéz Dobrého pastiera, ktorý je postavený na pedagogických princípoch Márie Montessori a teologických znalostiach Sofie Cavalletti. Deti sú privádzané k modlitbe a poznávaniu Boha.
+                    <p class="lead hidden"  style="font-family: {{$sekcia_act_atrium->font_textu}}; font-size:{{$sekcia_act_atrium->velkost_textu}}px; line-height:1.8em; text-align:justify; color: {{$sekcia_act_atrium->farba_textu}}">
+                        {!! $sekcia_act_atrium->text  !!}
                     </p>
 
-                    <p class="lead hidden" style="font-family: 'Inknut Antiqua', serif; font-size:30px; line-height:1.8em; text-align:left; color: #D9534F; margin-top: 10px">
-                        <b>Stretnutia sú pre vekovú skupinu 6-9+ rokov a bývať budú pondelky v čase od 15:30 do 17:30.
-                            <br>
-                            Prihláška: <a href="https://forms.gle/j6wfJjf1ebfjaFr56" style="color: #93B660;">https://forms.gle/j6wfJjf1ebfjaFr56</a>
-                        </b>
+                    <p class="lead hidden" style="font-family: {{$sekcia_act_atrium_stretnutia->font_nadpisu}}; font-size:{{$sekcia_act_atrium_stretnutia->typografia_nadpisu}}; line-height:1.8em; text-align:left; color: {{$sekcia_act_atrium_stretnutia->farba_nadpisu}}; margin-top: 10px">
+                        {!! $sekcia_act_atrium_stretnutia->nadpis  !!}
+                        {!! $sekcia_act_atrium_stretnutia->text  !!}
                     </p>
                 </div>
             </div>
