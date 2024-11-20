@@ -50,7 +50,7 @@ return new class extends Migration
 
             'text' => 'Rodinné centrum <strong><b><em>Sirotár</em></b></strong> pod sebou združuje rôzne aktivity.V rámci neho sme otvorili <strong><b><em>herňu Rodinného centra a Átrium</em></b></strong>, ktoré sú určené mamičkám s menšími deťmi. Cieľom je vytvoriť priestor pre lepšie prežívanie materstva, osobný aj duchovný rozvoj a sebarealizáciu mamičiek. Rovnako aj vytvoriť priestor pre zdravú socializáciu ich ratolestí.',
             'velkost_textu' => 25,
-            'farba_textu' => 'black',
+            'farba_textu' => '#000000',
             'font_textu' => '"Inknut Antiqua", serif',
 
         ]);
@@ -67,7 +67,7 @@ return new class extends Migration
 
             'text' => 'Herňa je otvorená pre mamičky a deti každú stredu (okrem prázdnin a sviatkov) od 9:00 h do 12:00 h, program (detská aktivita alebo prednáška) začína o 10:00 h spoločnou modlitbou. Počas programu je k dispozícii spovedná služba a knižnica.',
             'velkost_textu' => 20,
-            'farba_textu' => 'black',
+            'farba_textu' => '#000000',
             'font_textu' => '"Inknut Antiqua", serif',
 
         ]);
@@ -78,7 +78,7 @@ return new class extends Migration
 
             'nadpis' => '<b><u>Aktivity pre deti:</u></b>',
             'typografia_nadpisu' => '20px',
-            'farba_nadpisu' => 'black',
+            'farba_nadpisu' => '#000000',
             'font_nadpisu' => '"Inknut Antiqua", serif',
 
             'text' => ' <li>Hravá angličtina</li>
@@ -87,7 +87,7 @@ return new class extends Migration
                         <li>Klavírna víla – Boinka</li>
                         <li>Katechézy Dobrého pastiera</li>',
             'velkost_textu' => 20,
-            'farba_textu' => 'black',
+            'farba_textu' => '#000000',
             'font_textu' => '"Inknut Antiqua", serif',
 
         ]);
@@ -98,7 +98,7 @@ return new class extends Migration
 
             'nadpis' => '<b><u>Prednášky pre mamičky:</u></b>',
             'typografia_nadpisu' => '20px',
-            'farba_nadpisu' => 'black',
+            'farba_nadpisu' => '#000000',
             'font_nadpisu' => '"Inknut Antiqua", serif',
 
             'text' => ' <li>Fyzioterepeutka Radka</li>
@@ -110,7 +110,7 @@ return new class extends Migration
                         <li>O domácom vzdelávaní</li>
                         <li>O kváskovaní a iné…</li>',
             'velkost_textu' => 20,
-            'farba_textu' => 'black',
+            'farba_textu' => '#000000',
             'font_textu' => '"Inknut Antiqua", serif',
 
         ]);
@@ -126,7 +126,7 @@ return new class extends Migration
 
             'text' => 'Átrium je miesto, kde sa deti zoznamujú so základnými pravdami viery cez koncept Katechéz Dobrého pastiera, ktorý je postavený na pedagogických princípoch Márie Montessori a teologických znalostiach Sofie Cavalletti. Deti sú privádzané k modlitbe a poznávaniu Boha.',
             'velkost_textu' => 20,
-            'farba_textu' => 'black',
+            'farba_textu' => '#000000',
             'font_textu' => '"Inknut Antiqua", serif',
 
         ]);
@@ -204,15 +204,15 @@ return new class extends Migration
 
             'nadpis' => 'Adresa',
             'typografia_nadpisu' => '25px',
-            'farba_nadpisu' => 'black',
+            'farba_nadpisu' => '#000000',
             'font_nadpisu' => '"Questrial", serif',
 
             'ikonka_nadpisu' => 'fa-solid fa-location-dot fa-xl',
-            'farba_ikonky_nadpisu' => 'black',
+            'farba_ikonky_nadpisu' => '#000000',
 
             'text' => 'Jezuitská 6, Žilina, Slovakia, 01001 (v priestoroch Fidélia)',
             'velkost_textu' => 15,
-            'farba_textu' => 'black',
+            'farba_textu' => '#000000',
             'font_textu' => '"Inknut Antiqua", serif',
         ]);
 
@@ -223,7 +223,7 @@ return new class extends Migration
 
             'nadpis' => 'Facebook',
             'typografia_nadpisu' => '25px',
-            'farba_nadpisu' => 'black',
+            'farba_nadpisu' => '#000000',
             'font_nadpisu' => '"Questrial", serif',
 
             'ikonka_nadpisu' => 'fa-brands fa-facebook fa-xl',
@@ -240,21 +240,21 @@ return new class extends Migration
 
             'nadpis' => 'Kontakt',
             'typografia_nadpisu' => '25px',
-            'farba_nadpisu' => 'black',
+            'farba_nadpisu' => '#000000',
             'font_nadpisu' => '"Questrial", serif',
 
             'ikonka_nadpisu' => 'fa-solid fa-phone fa-xl',
-            'farba_ikonky_nadpisu' => 'black',
+            'farba_ikonky_nadpisu' => '#000000',
 
             'text' => '+421 907 175 211',
             'font_textu' => '"Inknut Antiqua", serif',
             'velkost_textu' => 15,
-            'farba_textu' => 'black',
+            'farba_textu' => '#000000',
 
             'podtext' => 'info@rcsirotar.sk',
             'font_podtextu' => '"Inknut Antiqua", serif',
             'velkost_podtextu' => 15,
-            'farba_podtextu' => 'orange',
+            'farba_podtextu' => '#FFA500',
 
         ]);
 

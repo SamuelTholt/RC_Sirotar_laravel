@@ -29,25 +29,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <title>Rodinné Centrum SIROTÁR</title>
+    <title>Editor Rodinné Centrum SIROTÁR</title>
 
-    <style>
-        .custom-section {
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        .blue-section {
-            background-color: #001a66;
-            color: white;
-        }
-        .green-section {
-            background-color: #004d00;
-            color: white;
-        }
-    </style>
 </head>
-<body>
+<body class="editor_body">
 <header class="bg-light shadow-sm">
     <nav class="navigationBar">
         <a href="{{url('/home')}}" class="logo">
@@ -99,24 +84,84 @@
         </div>
     </nav>
 </header>
-
 <section style="margin-top: 140px">
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="container mt-5">
-        @foreach($vsetky_sekcie as $sekcia)
-            <div class="custom-section blue-section">
+        @php
+            $colors = ['blue-section', 'green-section', 'red-section', 'orange-section'];
+        @endphp
+        @foreach($vsetky_sekcie as $index => $sekcia)
+            <div class="custom-section {{ $colors[$index % 4] }}">
                 <h1>{{$sekcia->id}}. {!! $sekcia->nazov_sekcie !!}</h1>
-                <h2><span><b>Nadpis :</b></span> {!! $sekcia->nadpis !!}</h2>
-                <br>
-                <p style="font-size: 18px"><span><b>Typografia nadpisu: </b></span> {{$sekcia->typografia_nadpisu}}</p>
-                <p style="font-size: 18px"><span><b>Farba nadpisu: </b></span> {{$sekcia->farba_nadpisu}}</p>
-                <p style="font-size: 18px"><span><b>Font nadpisu: </b></span> {{$sekcia->font_nadpisu}}</p>
-                <br>
-                <p style="font-size: 18px"><span><b>Ikonka nadpisu: </b></span> {{$sekcia->ikonka_nadpisu}}</p>
-                <p style="font-size: 18px"><span><b>Farba ikonky nadpisu: </b></span> {{$sekcia->farba_ikonky_nadpisu}}</p>
+
+                @if($sekcia->nadpis)
+                    <h2><span><b>Nadpis :</b></span> {!! $sekcia->nadpis !!}</h2>
+                @endif
+
+                @if($sekcia->typografia_nadpisu)
+                    <p style="font-size: 18px"><span><b>Typografia nadpisu: </b></span> {{$sekcia->typografia_nadpisu}}</p>
+                @endif
+
+                @if($sekcia->farba_nadpisu)
+                    <p style="font-size: 18px"><span><b>Farba nadpisu: </b></span> {{$sekcia->farba_nadpisu}}</p>
+                @endif
+
+                @if($sekcia->font_nadpisu)
+                    <p style="font-size: 18px"><span><b>Font nadpisu: </b></span> {{$sekcia->font_nadpisu}}</p>
+                @endif
+
+                @if($sekcia->ikonka_nadpisu)
+                    <p style="font-size: 18px">
+                        <span><b>Ikonka nadpisu: </b></span> {{$sekcia->ikonka_nadpisu}} <i class="{{$sekcia->ikonka_nadpisu}}"></i>
+                    </p>
+                @endif
+
+                @if($sekcia->farba_ikonky_nadpisu)
+                    <p style="font-size: 18px"><span><b>Farba ikonky nadpisu: </b></span> {{$sekcia->farba_ikonky_nadpisu}}</p>
+                @endif
+
+                @if($sekcia->text)
+                    <p style="font-size: 16px"><span><b>Text: </b></span> {{$sekcia->text}}</p>
+                @endif
+
+                @if($sekcia->velkost_textu)
+                    <p style="font-size: 16px"><span><b>Velkosť textu: </b></span> {{$sekcia->velkost_textu}}</p>
+                @endif
+
+                @if($sekcia->farba_textu)
+                    <p style="font-size: 16px"><span><b>Farba textu: </b></span> {{$sekcia->farba_textu}}</p>
+                @endif
+
+                @if($sekcia->font_textu)
+                    <p style="font-size: 16px"><span><b>Font textu: </b></span> {{$sekcia->font_textu}}</p>
+                @endif
+
+                @if($sekcia->podtext)
+                    <p style="font-size: 14px"><span><b>Podtext: </b></span> {{$sekcia->podtext}}</p>
+                @endif
+
+                @if($sekcia->velkost_podtextu)
+                    <p style="font-size: 14px"><span><b>Velkosť Podtextu: </b></span> {{$sekcia->velkost_podtextu}}</p>
+                @endif
+
+                @if($sekcia->farba_podtextu)
+                    <p style="font-size: 14px"><span><b>Farba Podtextu: </b></span> {{$sekcia->farba_podtextu}}</p>
+                @endif
+
+                @if($sekcia->font_podtextu)
+                    <p style="font-size: 14px"><span><b>Font Podtextu: </b></span> {{$sekcia->font_podtextu}}</p>
+                @endif
+
+                <a href="{{ route('sekcia.edit', ['id' => $sekcia->id]) }}" class="btn btn-primary" style="margin-top: 20px;"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
             </div>
         @endforeach
     </div>
 </section>
+
 
 <footer class="text-white pt-4 pb-4" style="background-color:#b0cc8e">
     <div class="container">

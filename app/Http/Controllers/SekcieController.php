@@ -42,4 +42,33 @@ class SekcieController extends Controller
         $vsetky_sekcie = Sekcie::all();
         return view('editor', compact('vsetky_sekcie'));
     }
+
+    public function edit($id)
+    {
+        $sekcia = Sekcie::findOrFail($id); //
+        return view('editSekcie', compact('sekcia'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $sekcia = Sekcie::findOrFail($id);
+
+        $data = $request->only([
+            'nazov_sekcie',
+            'nadpis', 'typografia_nadpisu', 'farba_nadpisu', 'font_nadpisu',
+            'ikonka_nadpisu', 'farba_ikonky_nadpisu',
+            'text', 'velkost_textu', 'farba_textu', 'font_textu',
+            'podtext', 'velkost_podtextu', 'farba_podtextu', 'font_podtextu',
+        ]);
+
+        foreach ($data as $key => $value) {
+            if ($value !== null) {
+                $sekcia->$key = $value;
+            }
+        }
+
+        $sekcia->save();
+        return redirect()->route('editor')->with('success', 'Sekcia bola úspešne upravená.');;
+    }
+
 }

@@ -2,6 +2,48 @@ html {
     scroll-behavior: smooth;
 }
 
+.custom-section {
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.blue-section {
+    background-color: #001a66;
+    color: white;
+}
+.green-section {
+    background-color: #004d00;
+    color: white;
+}
+.red-section {
+    background-color: #c75646;
+    color: black;
+}
+.orange-section {
+    background-color: #ea8f49;
+    color: black;
+}
+
+.custom-section p {
+    text-align: justify;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.editor_body {
+    background-color: #224155;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+
 body {
     font-family: Questrial, sans-serif;
 }

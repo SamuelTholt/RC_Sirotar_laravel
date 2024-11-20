@@ -20,6 +20,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&family=Crimson+Text:wght@400;600;700&family=Roboto+Slab:wght@300;400;500;700&family=EB+Garamond:wght@400;500;600;700&family=Slabo+27px&family=Lora:wght@400;500;600;700&family=Zilla+Slab:wght@300;400;500;600;700&family=Vollkorn:wght@400;500;600;700&family=PT+Serif:wght@400;700&family=Amiri:wght@400;700&family=Domine:wght@400;500;600;700&family=Cardo:wght@400;700&family=Spectral:wght@400;500;600;700&family=Abril+Fatface&family=Alegreya:wght@400;500;700&family=Faustina:wght@400;500;600;700&family=Noticia+Text:wght@400;700&display=swap" rel="stylesheet">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -109,7 +113,7 @@
 </header>
 
 <section id="home" class="container-fluid p-0">
-    <div style="position: relative; width: 100%; height: 100vh; overflow: hidden;">
+    <div style="position: relative; width: 100%; height: 200vh; overflow: hidden;">
         <img src="{{asset('assets/images/family_logo_v3.jpg')}}"
              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
     </div>
