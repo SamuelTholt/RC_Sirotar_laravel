@@ -118,7 +118,7 @@
         <div class="row justify-content-center text-center mb-4">
             <div class="col-md-8">
                 <h2 class="{{$sekcia_about_us->typografia_nadpisu}} text-shadow hidden" style="font-family: {{$sekcia_about_us->font_nadpisu}}; text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039); margin-top: 50px;">
-                    <span style="font-weight:bold; color:{{$sekcia_about_us->farba_nadpisu}};"><i class="{{$sekcia_about_us->ikonka_nadpisu}}" style="color: {{$sekcia_about_us->farba_ikonky_nadpisu}};"></i><span> {{$sekcia_about_us->nadpis}} </span></span>
+                    <span style="font-weight:bold; color:{{$sekcia_about_us->farba_nadpisu}};"><i class="{{$sekcia_about_us->ikonka_nadpisu}}" style="color: {{$sekcia_about_us->farba_ikonky_nadpisu}};"></i><span> {!!$sekcia_about_us->nadpis!!} </span></span>
                 </h2>
             </div>
         </div>
@@ -141,7 +141,7 @@
                 <!-- Herňa -->
                 <div class="col-md-6">
                     <h2 class="{{$sekcia_act_herna->typografia_nadpisu}} text-shadow hidden" style="font-family: {{$sekcia_act_herna->font_nadpisu}}; text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039)">
-                        <span style="font-weight:bold; color:{{$sekcia_act_herna->farba_nadpisu}};"><i class="{{$sekcia_act_herna->ikonka_nadpisu}}" style="color: {{$sekcia_act_herna->farba_ikonky_nadpisu}};"></i><span> {{$sekcia_act_herna->nadpis}} </span></span>
+                        <span style="font-weight:bold; color:{{$sekcia_act_herna->farba_nadpisu}};"><i class="{{$sekcia_act_herna->ikonka_nadpisu}}" style="color: {{$sekcia_act_herna->farba_ikonky_nadpisu}};"></i><span> {!!$sekcia_act_herna->nadpis!!} </span></span>
                     </h2>
                     <p class="lead hidden"  style="font-family: {{$sekcia_act_herna->font_textu}}; font-size:{{$sekcia_act_herna->velkost_textu}}px; line-height:1.8em; text-align:justify; color: {{$sekcia_act_herna->farba_textu}}">
                         {!! $sekcia_act_herna->text  !!}
@@ -163,8 +163,8 @@
 
                 <!--  Átrium -->
                 <div class="col-md-6">
-                    <<h2 class="{{$sekcia_act_atrium->typografia_nadpisu}} text-shadow hidden" style="font-family: {{$sekcia_act_atrium->font_nadpisu}}; text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039)">
-                        <span style="font-weight:bold; color:{{$sekcia_act_atrium->farba_nadpisu}};"><i class="{{$sekcia_act_atrium->ikonka_nadpisu}}" style="color: {{$sekcia_act_atrium->farba_ikonky_nadpisu}};"></i><span> {{$sekcia_act_atrium->nadpis}} </span></span>
+                    <h2 class="{{$sekcia_act_atrium->typografia_nadpisu}} text-shadow hidden" style="font-family: {{$sekcia_act_atrium->font_nadpisu}}; text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039)">
+                        <span style="font-weight:bold; color:{{$sekcia_act_atrium->farba_nadpisu}};"><i class="{{$sekcia_act_atrium->ikonka_nadpisu}}" style="color: {{$sekcia_act_atrium->farba_ikonky_nadpisu}};"></i><span> {!!$sekcia_act_atrium->nadpis!!} </span></span>
                     </h2>
                     <p class="lead hidden"  style="font-family: {{$sekcia_act_atrium->font_textu}}; font-size:{{$sekcia_act_atrium->velkost_textu}}px; line-height:1.8em; text-align:justify; color: {{$sekcia_act_atrium->farba_textu}}">
                         {!! $sekcia_act_atrium->text  !!}
@@ -224,7 +224,7 @@
         <div class="row justify-content-center text-center mb-4">
             <div class="col-md-8">
                 <h2 class="{{$sekcia_program->typografia_nadpisu}} text-shadow hidden1" style="font-family: {{$sekcia_program->font_nadpisu}}; text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039); margin-top: 200px;">
-                    <span style="font-weight:bold; color:{{$sekcia_program->farba_nadpisu}};">{{$sekcia_program->nadpis}}</span>
+                    <span style="font-weight:bold; color:{{$sekcia_program->farba_nadpisu}};">{!!$sekcia_program->nadpis!!}</span>
                 </h2>
                 <h2 class="{{$sekcia_program->typografia_nadpisu}} text-shadow hidden1" style="font-family: {{$sekcia_program->font_nadpisu}}; text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039)">
                     <span style="font-weight:bold; color:{{$sekcia_program->farba_ikonky_nadpisu}};"><i class="{{$sekcia_program->ikonka_nadpisu}}" style="color: {{$sekcia_program->farba_ikonky_nadpisu}}"></i></span>
@@ -242,8 +242,8 @@
 
 <!-- Galéria -->
 <section id="gallery" class="pt-5 pb-5 paint-shape_divider-top" style="background-color: #93B660">
-    <h2 class="display-4 text-shadow text-center hidden" style="text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039); margin-top: 50px; margin-bottom: 50px">
-        <span style="font-weight:bold; color:#FFFFFF;"><span>Galéria <i class="fa-solid fa-camera fa-lg" style="color: #ffffff;"></i></span></span>
+    <h2 class="{{$sekcia_galeria->typografia_nadpisu}} text-shadow text-center hidden" style="font-family: {{$sekcia_galeria->font_nadpisu}}; text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039); margin-top: 50px; margin-bottom: 50px">
+        <span style="font-weight:bold; color:{{$sekcia_galeria->farba_nadpisu}};"><span>{!! $sekcia_galeria->nadpis !!} <i class="{{$sekcia_galeria->ikonka_nadpisu}}" style="color: {{$sekcia_galeria->farba_ikonky_nadpisu}};"></i></span></span>
     </h2>
     <div class="container">
         <div class="row">
@@ -267,8 +267,8 @@
 
 <!-- Tím -->
 <section id="team" class="shapedividers_com-5827">
-    <h2 class="display-4 text-shadow text-center hidden1" style="text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039); margin-top: 150px; margin-bottom: 50px">
-        <span style="font-weight:bold; color:#80BA42;"><i class="fa-solid fa-users fa-lg"></i><span> Náš tím</span></span>
+    <h2 class="{{$sekcia_tim->typografia_nadpisu}} text-shadow text-center hidden1" style="font-family: {{$sekcia_tim->font_nadpisu}}; text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039); margin-top: 150px; margin-bottom: 50px">
+        <span style="font-weight:bold; color:{{$sekcia_tim->farba_nadpisu}};"><i class="{{$sekcia_tim->ikonka_nadpisu}}" style="color: {{$sekcia_tim->farba_ikonky_nadpisu}}"></i><span> {!! $sekcia_tim->nadpis !!}</span></span>
     </h2>
     <div class="container hidden1" style="margin-top: 100px">
         <div class="row">
@@ -327,8 +327,8 @@
 
         <div class="row justify-content-center text-center mb-4">
             <div class="col-md-8">
-                <h2 class="display-4 text-shadow hidden" style="text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039); margin-top: 50px;">
-                    <span style="font-weight:bold; color:#F4FEFD;"><span>Kontaktujte nás</span></span>
+                <h2 class="{{$sekcia_kontakt->typografia_nadpisu}} text-shadow hidden" style="font-family: {{$sekcia_kontakt->font_nadpisu}}; text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039); margin-top: 50px;">
+                    <span style="font-weight:bold; color:{{$sekcia_kontakt->farba_nadpisu}};"><span>{!! $sekcia_kontakt->nadpis !!}</span></span>
                 </h2>
             </div>
         </div>
@@ -340,10 +340,10 @@
             <div class="col-md-4 mb-4">
                 <div class="card ms-auto">
                     <div class="card-body" style="height: 280px;">
-                        <p class="card-text text-center" style="font-weight: bolder; font-size: 50px; font-family: 'Questrial', sans-serif"><i class="fa-solid fa-location-dot fa-xl"></i></p>
-                        <p class="card-text text-center" style="font-weight: bolder; font-size: 25px; font-family: 'Questrial', sans-serif">Adresa</p>
-                        <p class="card-text text-center" style="font-weight:normal; font-size: 15px; font-family: 'Inknut Antiqua', sans-serif">
-                            Jezuitská 6, Žilina, Slovakia, 01001 (v priestoroch Fidélia)</p>
+                        <p class="card-text text-center" style="font-weight: bolder; font-size: 50px; font-family: {{ $sekcia_kontakt_adresa->font_nadpisu }}"><i class="{{ $sekcia_kontakt_adresa->ikonka_nadpisu }}"></i></p>
+                        <p class="card-text text-center" style="color:{{ $sekcia_kontakt_adresa->farba_nadpisu }};font-weight: bolder; font-size: {{ $sekcia_kontakt_adresa->typografia_nadpisu }}; font-family: {{ $sekcia_kontakt_adresa->font_nadpisu }}">{!! $sekcia_kontakt_adresa->nadpis !!}</p>
+                        <p class="card-text text-center" style="color:{{ $sekcia_kontakt_adresa->farba_textu }};font-weight:normal; font-size: {{$sekcia_kontakt_adresa->velkost_textu}}px; font-family: {{ $sekcia_kontakt_adresa->font_textu }}">
+                            {!! $sekcia_kontakt_adresa->text !!}</p>
                     </div>
                 </div>
             </div>
@@ -352,12 +352,12 @@
             <div class="col-md-4 mb-4 hidden">
                 <div class="card ms-auto">
                     <div class="card-body" style="height: 280px;">
-                        <p class="card-text text-center" style="font-weight: bolder; font-size: 91px; font-family: 'Questrial', sans-serif">
-                            <a href="https://www.facebook.com/rc.sirotar" target="_blank" style="color: #004070;">
-                                <i class="fa-brands fa-facebook fa-xl"></i>
+                        <p class="card-text text-center" style="font-weight: bolder; font-size: 91px; font-family: {{ $sekcia_kontakt_fb->font_textu }}">
+                            <a href="{{ $sekcia_kontakt_fb->text }}" target="_blank" style="color: {{ $sekcia_kontakt_fb->farba_ikonky_nadpisu }};">
+                                <i class="{{ $sekcia_kontakt_fb->ikonka_nadpisu }}"></i>
                             </a>
                         </p>
-                        <p class="card-text text-center" style="font-weight: bolder; font-size: 25px; font-family: 'Questrial', sans-serif">Facebook</p>
+                        <p class="card-text text-center" style="color: {{ $sekcia_kontakt_fb->farba_nadpisu }};font-weight: bolder; font-size: {{ $sekcia_kontakt_fb->typografia_nadpisu }}; font-family: {{ $sekcia_kontakt_fb->font_nadpisu }}">Facebook</p>
                     </div>
                 </div>
             </div>
@@ -367,12 +367,12 @@
             <div class="col-md-4 mb-4">
                 <div class="card ms-auto">
                     <div class="card-body" style="height: 280px;">
-                        <p class="card-text text-center" style="font-weight: bolder; font-size: 50px; font-family: 'Questrial', sans-serif"><i class="fa-solid fa-phone fa-xl"></i></p>
-                        <p class="card-text text-center" style="font-weight: bolder; font-size: 25px; font-family: 'Questrial', sans-serif">Kontakt</p>
-                        <p class="card-text text-center" style="font-weight:normal; font-size: 15px; font-family: 'Inknut Antiqua', sans-serif">
-                            +421 907 175 211</p>
-                        <p class="card-text text-center" style="font-weight:normal; font-size: 15px; font-family: 'Inknut Antiqua', sans-serif">
-                            <a href="mailto:info@rcsirotar.sk" style="text-decoration: underline; color: orange;">info@rcsirotar.sk</a>
+                        <p class="card-text text-center" style="font-weight: bolder; font-size: 50px; font-family: {{ $sekcia_kontakt_mail->font_nadpisu }}"><i class="{{ $sekcia_kontakt_mail->ikonka_nadpisu }}" style="color: {{ $sekcia_kontakt_mail->farba_ikonky_nadpisu }}"></i></p>
+                        <p class="card-text text-center" style="font-weight: bolder; font-size: {{ $sekcia_kontakt_mail->typografia_nadpisu }}; font-family: {{ $sekcia_kontakt_mail->font_nadpisu }}"> {!! $sekcia_kontakt_mail->nadpis !!}</p>
+                        <p class="card-text text-center" style="font-weight:normal; font-size: {{ $sekcia_kontakt_mail->velkost_textu }}px; font-family: {{ $sekcia_kontakt_mail->font_textu }}">
+                            {!! $sekcia_kontakt_mail->text !!}</p>
+                        <p class="card-text text-center" style="font-weight:normal; font-size: {{ $sekcia_kontakt_mail->velkost_podtextu }}px; font-family: {{ $sekcia_kontakt_mail->font_podtextu }}">
+                            <a href="mailto:{{ $sekcia_kontakt_mail->podtext }}" style="text-decoration: underline; color: {{ $sekcia_kontakt_mail->farba_podtextu }};">{{ $sekcia_kontakt_mail->podtext }}</a>
                         </p>
                     </div>
                 </div>
@@ -385,7 +385,7 @@
             <div class="col-md-8 justify-content-center">
                 <div class="lc-block overflow-hidden">
                     <div style="max-height:40vh" class="ratio ratio-1x1">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2605.805470931671!2d18.733343057027465!3d49.22321619782527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47145ea65432012f%3A0x1adc0f9c4b5bd421!2sJezuitsk%C3%A1%206%2C%20010%2001%20%C5%BDilina!5e0!3m2!1ssk!2ssk!4v1729810453893!5m2!1ssk!2ssk" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="{{$sekcia_kontakt_map->text}}" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>

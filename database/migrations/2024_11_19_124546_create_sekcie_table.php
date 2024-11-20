@@ -29,6 +29,11 @@ return new class extends Migration
             $table->string('farba_textu')->nullable();
             $table->string('font_textu')->nullable();
 
+            $table->longText('podtext')->nullable();
+            $table->integer('velkost_podtextu')->nullable();
+            $table->string('farba_podtextu')->nullable();
+            $table->string('font_podtextu')->nullable();
+
         });
 
         DB::table('sekcie')->insert([
@@ -153,16 +158,113 @@ return new class extends Migration
         ]);
 
         DB::table('sekcie')->insert([
-            'id' => 6,
-            'nazov_sekcie' => 'galeria',
+            'id' => 8,
+            'nazov_sekcie' => 'gallery',
 
             'nadpis' => 'Galéria',
             'typografia_nadpisu' => 'display-4',
-            'farba_nadpisu' => '#C75646',
+            'farba_nadpisu' => '#FFFFFF',
             'font_nadpisu' => '"Questrial", serif',
 
-            'ikonka_nadpisu' => 'fa-solid fa-gamepad fa-lg',
-            'farba_ikonky_nadpisu' => '#C75646',
+            'ikonka_nadpisu' => 'fa-solid fa-camera fa-lg',
+            'farba_ikonky_nadpisu' => '#FFFFFF',
+
+        ]);
+
+
+        DB::table('sekcie')->insert([
+            'id' => 9,
+            'nazov_sekcie' => 'team',
+
+            'nadpis' => 'Náš tím',
+            'typografia_nadpisu' => 'display-4',
+            'farba_nadpisu' => '#80BA42',
+            'font_nadpisu' => '"Questrial", serif',
+
+            'ikonka_nadpisu' => 'fa-solid fa-users fa-lg',
+            'farba_ikonky_nadpisu' => '#80BA42',
+
+        ]);
+
+        DB::table('sekcie')->insert([
+            'id' => 10,
+            'nazov_sekcie' => 'kontakt',
+
+            'nadpis' => 'Kontaktujte nás',
+            'typografia_nadpisu' => 'display-4',
+            'farba_nadpisu' => '#F4FEFD',
+            'font_nadpisu' => '"Questrial", serif',
+
+
+        ]);
+
+        DB::table('sekcie')->insert([
+            'id' => 11,
+            'nazov_sekcie' => 'kontakt_adresa',
+
+            'nadpis' => 'Adresa',
+            'typografia_nadpisu' => '25px',
+            'farba_nadpisu' => 'black',
+            'font_nadpisu' => '"Questrial", serif',
+
+            'ikonka_nadpisu' => 'fa-solid fa-location-dot fa-xl',
+            'farba_ikonky_nadpisu' => 'black',
+
+            'text' => 'Jezuitská 6, Žilina, Slovakia, 01001 (v priestoroch Fidélia)',
+            'velkost_textu' => 15,
+            'farba_textu' => 'black',
+            'font_textu' => '"Inknut Antiqua", serif',
+        ]);
+
+
+        DB::table('sekcie')->insert([
+            'id' => 12,
+            'nazov_sekcie' => 'kontakt_fb',
+
+            'nadpis' => 'Facebook',
+            'typografia_nadpisu' => '25px',
+            'farba_nadpisu' => 'black',
+            'font_nadpisu' => '"Questrial", serif',
+
+            'ikonka_nadpisu' => 'fa-brands fa-facebook fa-xl',
+            'farba_ikonky_nadpisu' => '#004070',
+
+            'text' => 'https://www.facebook.com/rc.sirotar',
+            'font_textu' => '"Questrial", serif',
+        ]);
+
+
+        DB::table('sekcie')->insert([
+            'id' => 13,
+            'nazov_sekcie' => 'kontakt_number_mail',
+
+            'nadpis' => 'Kontakt',
+            'typografia_nadpisu' => '25px',
+            'farba_nadpisu' => 'black',
+            'font_nadpisu' => '"Questrial", serif',
+
+            'ikonka_nadpisu' => 'fa-solid fa-phone fa-xl',
+            'farba_ikonky_nadpisu' => 'black',
+
+            'text' => '+421 907 175 211',
+            'font_textu' => '"Inknut Antiqua", serif',
+            'velkost_textu' => 15,
+            'farba_textu' => 'black',
+
+            'podtext' => 'info@rcsirotar.sk',
+            'font_podtextu' => '"Inknut Antiqua", serif',
+            'velkost_podtextu' => 15,
+            'farba_podtextu' => 'orange',
+
+        ]);
+
+
+        DB::table('sekcie')->insert([
+            'id' => 14,
+            'nazov_sekcie' => 'kontakt_map',
+
+            'text' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2605.805470931671!2d18.733343057027465!3d49.22321619782527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47145ea65432012f%3A0x1adc0f9c4b5bd421!2sJezuitsk%C3%A1%206%2C%20010%2001%20%C5%BDilina!5e0!3m2!1ssk!2ssk!4v1729810453893!5m2!1ssk!2ssk',
+
 
         ]);
     }
