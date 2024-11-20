@@ -90,7 +90,7 @@
                 @endif
 
                 <!-- Farba ikonky nadpisu -->
-                @if(!is_null($sekcia->farba_ikonka_nadpisu))
+                @if(!is_null($sekcia->farba_ikonky_nadpisu))
                     <div class="form-group">
                         <label for="farba_ikonka_nadpisu">Farba ikonky nadpisu:</label>
                         <input type="color" class="form-control" name="farba_ikonka_nadpisu" value="{{ $sekcia->farba_ikonka_nadpisu }}">
