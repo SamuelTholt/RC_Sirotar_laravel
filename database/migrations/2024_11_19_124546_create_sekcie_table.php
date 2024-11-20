@@ -46,7 +46,7 @@ return new class extends Migration
             'font_nadpisu' => '"Questrial", serif',
 
             'ikonka_nadpisu' => 'fa-solid fa-puzzle-piece fa-lg',
-            'farba_ikonky_nadpisu' => '#ffffff',
+            'farba_ikonky_nadpisu' => '#FFFFFF',
 
             'text' => 'Rodinné centrum <strong><b><em>Sirotár</em></b></strong> pod sebou združuje rôzne aktivity.V rámci neho sme otvorili <strong><b><em>herňu Rodinného centra a Átrium</em></b></strong>, ktoré sú určené mamičkám s menšími deťmi. Cieľom je vytvoriť priestor pre lepšie prežívanie materstva, osobný aj duchovný rozvoj a sebarealizáciu mamičiek. Rovnako aj vytvoriť priestor pre zdravú socializáciu ich ratolestí.',
             'velkost_textu' => 25,
