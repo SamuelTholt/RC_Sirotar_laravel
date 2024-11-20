@@ -20,6 +20,7 @@ class SekcieController extends Controller
         $sekcia_program = Sekcie::find(7);
         return view('RCSirotar',
             compact('sekcia_about_us', 'sekcia_act_herna', 'sekcia_act_herna_deti',
-                'sekcia_act_herna_prednasky', 'sekcia_act_atrium','sekcia_act_atrium_stretnutia'));
+                'sekcia_act_herna_prednasky', 'sekcia_act_atrium','sekcia_act_atrium_stretnutia',
+                'sekcia_program'));
     }
 }

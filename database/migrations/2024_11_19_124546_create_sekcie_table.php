@@ -151,6 +151,20 @@ return new class extends Migration
             'farba_ikonky_nadpisu' => '#C75646',
 
         ]);
+
+        DB::table('sekcie')->insert([
+            'id' => 6,
+            'nazov_sekcie' => 'galeria',
+
+            'nadpis' => 'Galéria',
+            'typografia_nadpisu' => 'display-4',
+            'farba_nadpisu' => '#C75646',
+            'font_nadpisu' => '"Questrial", serif',
+
+            'ikonka_nadpisu' => 'fa-solid fa-gamepad fa-lg',
+            'farba_ikonky_nadpisu' => '#C75646',
+
+        ]);
     }
 
     /**

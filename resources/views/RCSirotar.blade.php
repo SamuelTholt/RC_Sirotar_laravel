@@ -140,7 +140,7 @@
             <div class="row justify-content-between">
                 <!-- Herňa -->
                 <div class="col-md-6">
-                    <h2 class="{{$sekcia_act_herna->typografia_nadpisu}} text-shadow hidden" style="text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039)">
+                    <h2 class="{{$sekcia_act_herna->typografia_nadpisu}} text-shadow hidden" style="font-family: {{$sekcia_act_herna->font_nadpisu}}; text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039)">
                         <span style="font-weight:bold; color:{{$sekcia_act_herna->farba_nadpisu}};"><i class="{{$sekcia_act_herna->ikonka_nadpisu}}" style="color: {{$sekcia_act_herna->farba_ikonky_nadpisu}};"></i><span> {{$sekcia_act_herna->nadpis}} </span></span>
                     </h2>
                     <p class="lead hidden"  style="font-family: {{$sekcia_act_herna->font_textu}}; font-size:{{$sekcia_act_herna->velkost_textu}}px; line-height:1.8em; text-align:justify; color: {{$sekcia_act_herna->farba_textu}}">
@@ -163,7 +163,7 @@
 
                 <!--  Átrium -->
                 <div class="col-md-6">
-                    <<h2 class="{{$sekcia_act_atrium->typografia_nadpisu}} text-shadow hidden" style="text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039)">
+                    <<h2 class="{{$sekcia_act_atrium->typografia_nadpisu}} text-shadow hidden" style="font-family: {{$sekcia_act_atrium->font_nadpisu}}; text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039)">
                         <span style="font-weight:bold; color:{{$sekcia_act_atrium->farba_nadpisu}};"><i class="{{$sekcia_act_atrium->ikonka_nadpisu}}" style="color: {{$sekcia_act_atrium->farba_ikonky_nadpisu}};"></i><span> {{$sekcia_act_atrium->nadpis}} </span></span>
                     </h2>
                     <p class="lead hidden"  style="font-family: {{$sekcia_act_atrium->font_textu}}; font-size:{{$sekcia_act_atrium->velkost_textu}}px; line-height:1.8em; text-align:justify; color: {{$sekcia_act_atrium->farba_textu}}">
@@ -223,11 +223,11 @@
 
         <div class="row justify-content-center text-center mb-4">
             <div class="col-md-8">
-                <h2 class="display-4 text-shadow hidden1" style="text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039); margin-top: 200px;">
-                    <span style="font-weight:bold; color:#C75646;">Aktuálny Program HERNE</span>
+                <h2 class="{{$sekcia_program->typografia_nadpisu}} text-shadow hidden1" style="font-family: {{$sekcia_program->font_nadpisu}}; text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039); margin-top: 200px;">
+                    <span style="font-weight:bold; color:{{$sekcia_program->farba_nadpisu}};">{{$sekcia_program->nadpis}}</span>
                 </h2>
-                <h2 class="display-4 text-shadow hidden1" style="text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039)">
-                    <span style="font-weight:bold; color:#C75646;"><i class="fa-solid fa-gamepad fa-lg" style="color: #c75646;"></i></span>
+                <h2 class="{{$sekcia_program->typografia_nadpisu}} text-shadow hidden1" style="font-family: {{$sekcia_program->font_nadpisu}}; text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039)">
+                    <span style="font-weight:bold; color:{{$sekcia_program->farba_ikonky_nadpisu}};"><i class="{{$sekcia_program->ikonka_nadpisu}}" style="color: {{$sekcia_program->farba_ikonky_nadpisu}}"></i></span>
                 </h2>
             </div>
         </div>
@@ -243,7 +243,7 @@
 <!-- Galéria -->
 <section id="gallery" class="pt-5 pb-5 paint-shape_divider-top" style="background-color: #93B660">
     <h2 class="display-4 text-shadow text-center hidden" style="text-shadow: 1px 1px 0px #c8c8c8, 0px 2px 0px #b4b4b4, 0px 3px 0px #a0a0a0, 0px 4px 0px rgba(140, 140, 140, 0.498039), 0px 0px 0px #787878, 0px 5px 10px rgba(0, 0, 0, 0.498039); margin-top: 50px; margin-bottom: 50px">
-        <span style="font-weight:bold; color:#F4FEFD;"><span>Galéria <i class="fa-solid fa-camera fa-lg" style="color: #ffffff;"></i></span></span>
+        <span style="font-weight:bold; color:#FFFFFF;"><span>Galéria <i class="fa-solid fa-camera fa-lg" style="color: #ffffff;"></i></span></span>
     </h2>
     <div class="container">
         <div class="row">
