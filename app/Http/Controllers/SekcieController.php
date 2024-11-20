@@ -36,4 +36,10 @@ class SekcieController extends Controller
                 'sekcia_program', 'sekcia_galeria', 'sekcia_tim', 'sekcia_kontakt', 'sekcia_kontakt_adresa',
                 'sekcia_kontakt_fb', 'sekcia_kontakt_mail', 'sekcia_kontakt_map'));
     }
+
+    public function index_editor()
+    {
+        $vsetky_sekcie = Sekcie::all();
+        return view('editor', compact('vsetky_sekcie'));
+    }
 }

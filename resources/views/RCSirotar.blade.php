@@ -75,6 +75,11 @@
                             <li><a class="dropdown-item" href="{{ route('profile.edit') }}">
                                     {{ __('Profil') }}
                                 </a></li>
+                            @if(Auth::user()->isAdmin())
+                                <li><a class="dropdown-item" href="{{ url('/editor') }}">
+                                        {{ __('Editor') }}
+                                    </a></li>
+                            @endif
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
