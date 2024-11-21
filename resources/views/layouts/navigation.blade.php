@@ -35,6 +35,9 @@
                             {{ __('Editor') }}
                         </x-dropdown-link>
 
+                        <x-dropdown-link :href="url('users')">
+                            {{ __('Users') }}
+                        </x-dropdown-link>
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -64,8 +67,8 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-nav-link :href="url('/obchod')" :active="request()->routeIs('obchod')">
-                {{ __('Obchod') }}
+            <x-nav-link :href="url('/')" :active="request()->routeIs('/')">
+                {{ __('Domov') }}
             </x-nav-link>
         </div>
 
@@ -80,6 +83,15 @@
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profil') }}
                 </x-responsive-nav-link>
+
+
+                <x-dropdown-link :href="url('editor')">
+                    {{ __('Editor') }}
+                </x-dropdown-link>
+
+                <x-dropdown-link :href="url('users')">
+                    {{ __('Users') }}
+                </x-dropdown-link>
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">

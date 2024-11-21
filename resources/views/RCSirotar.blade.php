@@ -84,6 +84,12 @@
                                         {{ __('Editor') }}
                                     </a></li>
                             @endif
+
+                            @if(Auth::user()->isHlavnyAdmin())
+                                <li><a class="dropdown-item" href="{{ url('/users') }}">
+                                        {{ __('Users') }}
+                                    </a></li>
+                            @endif
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
