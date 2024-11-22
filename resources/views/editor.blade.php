@@ -202,6 +202,21 @@
                                                         {{ $image->priradenaSekcia->nadpis }}
                                                     </p>
                                                 </div>
+
+
+                                                <div class="card-body d-flex flex-column justify-content-between">
+                                                    <p class="card-text" style="font-weight: bold; font-size: 14px; height: 25px">
+                                                        <a href="{{ route('foto.edit', ['id' => $image->id]) }}" class="btn btn-primary" style="margin-top: 20px;"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                                                    </p>
+                                                </div>
+
+                                                <div class="card-body d-flex flex-column justify-content-between">
+                                                    <form action="{{ route('foto.destroy', $image->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Odstrániť</button>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     @endforeach

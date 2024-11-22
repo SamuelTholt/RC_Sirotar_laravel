@@ -29,40 +29,55 @@
 
     <title>Editor Rodinné Centrum SIROTÁR</title>
 
+    <style>
+        .current-photo {
+            display: block;
+            margin: 20px auto;
+            width: 640px;
+            height: 360px;
+            object-fit: cover;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
 <section>
     <div class="container mt-5">
         <div class="custom-section blue-section">
-            <h1 style="text-align: center;">Pridať fotografiu</h1>
-            <form action="{{ route('foto.store') }}" method="POST" enctype="multipart/form-data">
+            <h1 style="text-align: center;">Upraviť fotografiu</h1>
+            <!-- Zobrazenie aktuálnej fotografie -->
+            <div class="text-center">
+                <img src="{{ asset($foto->cesta_k_suboru) }}" alt="Aktuálna fotografia" class="current-photo">
+            </div>
+            <form action="{{ route('foto.update', $foto->id) }}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="form-group">
                     <label for="nadpis">Nadpis:</label>
-                    <input type="text" class="form-control" name="nadpis" id="nadpis">
+                    <input type="text" class="form-control" name="nadpis" id="nadpis" value="{{ $foto->nadpis }}">
                 </div>
 
                 <div class="form-group">
                     <label for="text">Text:</label>
-                    <input type="text" class="form-control" name="text" id="text">
+                    <input type="text" class="form-control" name="text" id="text" value="{{ $foto->text }}">
                 </div>
 
                 <div class="form-group">
                     <label for="subor">Obrázok:</label>
-                    <input type="file" class="form-control" name="subor" id="subor" accept="image/*" required>
+                    <input type="file" class="form-control" name="subor" id="subor" accept="image/*">
                 </div>
-
 
                 <div class="form-group">
                     <label for="priradena_sekcia_id">Priraď fotografiu k sekcií:</label>
                     <select class="form-control" name="priradena_sekcia_id" id="priradena_sekcia_id" required>
-                        <option value="2">Herňa/Átrium</option>
-                        <option value="7">Program</option>
-                        <option value="8">Galéria</option>
-                        <option value="9">Tím</option>
+                        <option value="2" @if($foto->priradenaSekcia->id == 2) selected @endif>Herňa/Átrium</option>
+                        <option value="7" @if($foto->priradenaSekcia->id == 7) selected @endif>Program</option>
+                        <option value="8" @if($foto->priradenaSekcia->id == 8) selected @endif>Galéria</option>
+                        <option value="9" @if($foto->priradenaSekcia->id == 9) selected @endif>Tím</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary mt-3">Pridať fotografiu</button>
+                <button type="submit" class="btn btn-primary mt-3">Upraviť fotografiu</button>
 
                 <span style="margin-right: 10px;"></span>
                 <button type="button" class="btn btn-warning mt-3" onclick="window.history.back();">Naspäť</button>
@@ -79,17 +94,17 @@
             let formData = new FormData(this);
 
             $.ajax({
-                url: '{{ route('foto.store') }}',
+                url: '{{ route('foto.update', $foto->id) }}',
                 type: 'POST',
                 data: formData,
                 processData: false,
                 contentType: false,
                 success: function(){
-                    alert('Pridanie fotografie bolo úspešné!');
+                    alert('Úprava fotografie bolo úspešná!');
                     window.history.back();
                 },
                 error: function(xhr){
-                    alert('Pridanie zlyhalo!');
+                    alert('Úprava zlyhala!');
                 }
             });
         });
@@ -100,6 +115,7 @@
 
 </body>
 </html>
+
 
 
 

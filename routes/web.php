@@ -39,16 +39,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/editor', [FotografieController::class, 'store'])->name('foto.store')->middleware('isAdmin');
 
 
-    Route::delete('/fotografie/{id}', [FotografieController::class, 'delete']);
+    Route::get('/editor_photo/{id}/edit', [FotografieController::class, 'edit'])->name('foto.edit')->middleware('isAdmin');
+
+    Route::put('/editor_photo/{id}', [FotografieController::class, 'update'])->name('foto.update')->middleware('isAdmin');
+    Route::delete('/editor_photo/{id}', [FotografieController::class, 'destroy'])->name('foto.destroy')->middleware('isAdmin');
 
 
-
-    //Route::post('/obchod', [ProduktyController::class, 'store'])->name('products.store')->middleware('is_admin');
-
-    //oute::get('/obchod/{id}/edit', [ProduktyController::class, 'edit'])->name('products.edit')->middleware('is_admin');
-
-    //Route::put('/obchod/{id}', [ProduktyController::class, 'update'])->name('products.update')->middleware('is_admin');;
-    //Route::delete('/obchod/{id}', [ProduktyController::class, 'destroy'])->name('products.destroy')->middleware('is_admin');;
 
     Route::get('/users', [RoleController::class, 'index'])->name('role.index')->middleware('isHlavnyAdmin');
 
