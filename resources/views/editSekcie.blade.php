@@ -60,7 +60,7 @@
                     <div class="form-group">
                         <label for="typografia_nadpisu">Typografia nadpisu:</label>
                         <input type="text" class="form-control" name="typografia_nadpisu" value="{{ $sekcia->typografia_nadpisu }}">
-                        <p>Viac info o typoch: <a href="https://bootstrapshuffle.com/classes/typography/display-%23+%281-4%29">https://bootstrapshuffle.com/classes/typography/display-%23+%281-4%29</a></p>
+                        <p>Viac informácií o typoch: <a href="https://bootstrapshuffle.com/classes/typography/display-%23+%281-4%29">https://bootstrapshuffle.com/classes/typography/display-%23+%281-4%29</a></p>
                         <p>Ak je tam px -> napísať veľkosť v px (napr. 20px)</p>
                     </div>
                 @endif
@@ -84,6 +84,8 @@
                     <div class="form-group">
                         <label for="ikonka_nadpisu">Ikonka nadpisu:</label>
                         <input type="text" class="form-control" name="ikonka_nadpisu" value="{{ $sekcia->ikonka_nadpisu }}">
+                        <p>Pre vybriatie ikoniek a viac informácií o ikonkách: <a href="https://fontawesome.com/search?o=r&m=free">https://fontawesome.com/search?o=r&m=free</a></p>
+
                     </div>
                 @endif
 
