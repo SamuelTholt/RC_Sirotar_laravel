@@ -27,4 +27,9 @@ class Sekcie extends Model
         'farba_textu',
         'font_textu',
     ];
+
+    public function fotografie()
+    {
+        return $this->hasMany(Fotografie::class, 'priradena_sekcia_id');
+    }
 }

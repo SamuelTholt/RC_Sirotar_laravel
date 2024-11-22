@@ -21,4 +21,9 @@ class Fotografie extends Model
         'cesta_k_suboru',
         'priradena_sekcia_id',
     ];
+
+    public function priradenaSekcia()
+    {
+        return $this->belongsTo(Sekcie::class, 'priradena_sekcia_id');
+    }
 }

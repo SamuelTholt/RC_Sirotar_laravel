@@ -53,7 +53,13 @@ class SekcieController extends Controller
         $vsetky_sekcie = Sekcie::all();
         $foto = Fotografie::all();
 
-        return view('editor', compact('foto', 'vsetky_sekcie'));
+        $program = Fotografie::where('priradena_sekcia_id', 7)->get()->first();
+
+        $images = Fotografie::where('priradena_sekcia_id', 8)->get();
+
+        $team = Fotografie::where('priradena_sekcia_id', 9)->get();
+
+        return view('editor', compact('foto', 'vsetky_sekcie', 'images', 'team', 'program'));
     }
 
     public function edit($id)

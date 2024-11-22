@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
+    <script src="{{asset('assets/js/java_script.js')}}"></script>
+
     <!-- Questrial font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -168,10 +170,56 @@
 </section>
 
 <section id="foto" style="margin-top: 100px">
-    <div class="container mt-5">
-            <div class="custom-section white-section">
-                <a href="{{ route('foto.create')}}" class="btn btn-success"><i class="fa-solid fa-plus"></i> Pridať fotografiu</a>
+    <div class="container mt-5 custom-section white-section">
+        <div>
+            <a href="{{ route('foto.create')}}" class="btn btn-success"><i class="fa-solid fa-plus"></i> Pridať fotografiu</a>
+        </div>
+        <div class="row" style="margin-top: 10px">
+            <div class="col-12">
+                <div id="carouselExampleIndicators2" class="carousel slide hidden" data-interval="false">
+                    <div class="carousel-inner">
+                        @foreach($foto->chunk(3) as $index => $imageGroup)
+                            <div class="carousel-item @if($index === 0) active @endif">
+                                <div class="row">
+                                    @foreach($imageGroup as $image)
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card d-flex flex-column">
+                                                <img src="{{ asset($image->cesta_k_suboru) }}" class="img-fluid rounded" style="width: 640px; height: 360px; object-fit: cover;" alt="{{ $image->nadpis }}">
+                                                <div class="card-body d-flex flex-column justify-content-between">
+                                                    <p class="card-text text-center" style="font-weight: bold; font-size: 20px; height: 25px">
+                                                        {{ $image->nadpis }}
+                                                    </p>
+                                                </div>
+
+                                                <div class="card-body d-flex flex-column justify-content-between">
+                                                    <p class="card-text text-center" style="font-weight: bold; font-size: 18px; height: 25px">
+                                                        {{ $image->text }}
+                                                    </p>
+                                                </div>
+
+                                                <div class="card-body d-flex flex-column justify-content-between">
+                                                    <p class="card-text text-center" style="font-weight: bold; font-size: 14px; height: 25px">
+                                                        {{ $image->priradenaSekcia->nadpis }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
+            <div class="text-center hidden">
+                <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-bs-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="btn btn-primary mb-3" href="#carouselExampleIndicators2" role="button" data-bs-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 
