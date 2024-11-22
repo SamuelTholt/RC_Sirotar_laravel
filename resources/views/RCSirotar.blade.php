@@ -198,35 +198,19 @@
 <section id="activities-gallery" class="section py-5 waves-shape_divider-top" style="background-color: #B3D9E5;">
     <div class="container" style="margin-top: 200px;">
         <div class="row justify-content-center hidden">
-            <!-- Card 1 -->
-            <div class="col-md-4 mb-4">
-                <div class="card ms-auto">
-                    <img src="{{asset('assets/images/1.jpg')}}" class="card-img-top" alt="Detské tvorivé dielne">
-                    <div class="card-body">
-                        <p class="card-text text-center" style=" font-weight:bolder; font-size: 20px; 'Questrial', sans-serif">Detské tvorivé dielne</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Card 2 -->
-            <div class="col-md-4 mb-4 hidden">
-                <div class="card ms-auto">
-                    <img src="{{asset('assets/images/2.jpg')}}" class="card-img-top" alt="Klavírna víla – Boinka">
-                    <div class="card-body">
-                        <p class="card-text text-center" style=" font-weight:bolder; font-size: 20px; 'Questrial', sans-serif">Klavírna víla – Boinka</p>
+            @foreach($foto as $fotka)
+                @if($fotka->priradena_sekcia_id === 2)
+                    <div class="col-md-4 mb-4">
+                        <div class="card ms-auto">
+                            <img src="{{asset($fotka->cesta_k_suboru)}}" class="card-img-top" alt="{{$fotka->nadpis}}">
+                            <div class="card-body">
+                                <p class="card-text text-center" style=" font-weight:bolder; font-size: 20px; 'Questrial', sans-serif">{{$fotka->nadpis}}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="col-md-4 mb-4 hidden">
-                <div class="card ms-auto">
-                    <img src="{{asset('assets/images/3.jpg')}}" class="card-img-top" alt="Montessori hernička">
-                    <div class="card-body">
-                        <p class="card-text text-center" style=" font-weight:bolder; font-size: 20px; 'Questrial', sans-serif">Montessori hernička</p>
-                    </div>
-                </div>
-            </div>
+                @endif
+            @endforeach
         </div>
     </div>
 </section>
@@ -247,10 +231,12 @@
             </div>
         </div>
 
-        <div class="mb-4 hidden1">
-            <img src="{{asset('assets/images/program.jpg')}}"
-                 alt="Program herne" class="img-fluid image-style shadow-community" style="object-fit: cover;">
-        </div>
+        @if($program)
+            <div class="mb-4 hidden1">
+                <img src="{{asset($program->cesta_k_suboru)}}"
+                     alt="Program herne" class="img-fluid image-style shadow-community" style="object-fit: cover;">
+            </div>
+        @endif
     </div>
 </section>
 
@@ -264,21 +250,47 @@
         <div class="row">
             <div class="col-12">
                 <div id="carouselExampleIndicators2" class="carousel slide hidden" data-interval="false">
-                    <div class="carousel-inner" id="carousel-inner-container">
+                    <div class="carousel-inner">
+                        @foreach($images->chunk(3) as $index => $imageGroup)
+                            <div class="carousel-item @if($index === 0) active @endif">
+                                <div class="row">
+                                    @foreach($imageGroup as $image)
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card d-flex flex-column">
+                                                <img src="{{ asset($image->cesta_k_suboru) }}" class="img-fluid rounded" style="width: 640px; height: 360px; object-fit: cover;" alt="{{ $image->nadpis }}">
+                                                <div class="card-body d-flex flex-column justify-content-between">
+                                                    <p class="card-text text-center" style="font-weight: bold; font-size: 20px; height: 25px">
+                                                        {{ $image->nadpis }}
+                                                    </p>
+                                                </div>
+
+                                                <div class="card-body d-flex flex-column justify-content-between">
+                                                    <p class="card-text text-center" style="font-weight: bold; font-size: 18px; height: 25px">
+                                                        {{ $image->text }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
             <div class="text-center hidden">
-                <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-bs-slide="prev">
                     <i class="fa fa-arrow-left"></i>
                 </a>
-                <a class="btn btn-primary mb-3" href="#carouselExampleIndicators2" role="button" data-slide="next">
+                <a class="btn btn-primary mb-3" href="#carouselExampleIndicators2" role="button" data-bs-slide="next">
                     <i class="fa fa-arrow-right"></i>
                 </a>
             </div>
         </div>
     </div>
 </section>
+
+
 
 <!-- Tím -->
 <section id="team" class="shapedividers_com-5827">
@@ -287,50 +299,22 @@
     </h2>
     <div class="container hidden1" style="margin-top: 100px">
         <div class="row">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="our-team">
-                    <div class="picture">
-                        <img class="img-fluid" style="width: 130px; height: 130px; object-fit: cover;" src={{asset('assets/images/Miroslav-Uhrina_1-480x300.jpg')}}>
-                    </div>
-                    <div class="team-content">
-                        <h3 class="name">Miroslav Uhrina</h3>
-                        <h4 class="title">Koordinátor Rodinného Centra</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="our-team">
-                    <div class="picture1">
-                        <img class="img-fluid" style="width: 130px; height: 130px; object-fit: cover;" src={{asset('assets/images/Katarína-Sopková-480x300.jpg')}}>
-                    </div>
-                    <div class="team-content">
-                        <h3 class="name">Katarína Sopková</h3>
-                        <h4 class="title">Zodpovedná za Herňu</h4>
+            @php
+                $pictures = ['picture', 'picture1', 'picture2', 'picture3'];
+            @endphp
+            @foreach($team as $index => $member)
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="our-team">
+                        <div class="{{ $pictures[$index % 4] }}">
+                            <img class="img-fluid" style="width: 130px; height: 130px; object-fit: cover;" src={{asset($member->cesta_k_suboru)}}>
+                        </div>
+                        <div class="team-content">
+                            <h3 class="name">{{$member->nadpis}}</h3>
+                            <h4 class="title">{{$member->text}}</h4>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="our-team">
-                    <div class="picture2">
-                        <img class="img-fluid" style="width: 130px; height: 130px; object-fit: cover;" src="{{asset('assets/images/Mária-Sroková-480x300.jpg')}}">
-                    </div>
-                    <div class="team-content">
-                        <h3 class="name">Mária Sroková</h3>
-                        <h4 class="title">Zodpovedná za Átrium</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="our-team">
-                    <div class="picture3">
-                        <img class="img-fluid" style="width: 130px; height: 130px; object-fit: cover;" src={{asset('assets/images/Magdaléna-Uhrinová-Brezániová-480x300.jpg')}}>
-                    </div>
-                    <div class="team-content">
-                        <h3 class="name">Magdaléna Uhrinová Brezániová</h3>
-                        <h4 class="title">Dobrovoľníčka v herni</h4>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

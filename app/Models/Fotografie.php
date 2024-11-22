@@ -5,22 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Fotografie extends Model
 {
     use HasFactory;
 
-    protected $table = 'role';
-
+    protected $table = 'fotografie';
     protected $primaryKey = 'id';
 
     public $timestamps = false;
 
     protected $fillable = [
-        'nazov_role',
+        'nadpis',
+        'text',
+        'nazov_suboru',
+        'cesta_k_suboru',
+        'priradena_sekcia_id',
     ];
-
-    public function users()
-    {
-        return $this->hasMany(User::class);
-    }
 }

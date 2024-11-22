@@ -7,6 +7,11 @@ html {
     padding: 20px;
     margin-bottom: 20px;
 }
+
+.white-section {
+    background-color: #F4FEFD;
+    color: black;
+}
 .blue-section {
     background-color: #001a66;
     color: white;

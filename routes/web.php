@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FotografieController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SekcieController;
@@ -34,6 +35,20 @@ Route::middleware('auth')->group(function () {
     Route::put('/editor_sekcia/{id}', [SekcieController::class, 'update'])->name('sekcia.update')->middleware('isAdmin');
 
 
+    Route::get('/editor/createPhoto', [FotografieController::class, 'create'])->name('foto.create')->middleware('isAdmin');
+    Route::post('/editor', [FotografieController::class, 'store'])->name('foto.store')->middleware('isAdmin');
+
+
+    Route::delete('/fotografie/{id}', [FotografieController::class, 'delete']);
+
+
+
+    //Route::post('/obchod', [ProduktyController::class, 'store'])->name('products.store')->middleware('is_admin');
+
+    //oute::get('/obchod/{id}/edit', [ProduktyController::class, 'edit'])->name('products.edit')->middleware('is_admin');
+
+    //Route::put('/obchod/{id}', [ProduktyController::class, 'update'])->name('products.update')->middleware('is_admin');;
+    //Route::delete('/obchod/{id}', [ProduktyController::class, 'destroy'])->name('products.destroy')->middleware('is_admin');;
 
     Route::get('/users', [RoleController::class, 'index'])->name('role.index')->middleware('isHlavnyAdmin');
 

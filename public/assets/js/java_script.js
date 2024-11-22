@@ -23,46 +23,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // Sledovanie všetkých h2 a p elementov s triedou 'hidden'
     targets.forEach(target => observer.observe(target));
 
-
-
-    const totalImages = 21;
-    const imagesPerSlide = 3;
-    const carouselInner = document.getElementById('carousel-inner-container');
-
-    for (let i = 1; i <= totalImages; i += imagesPerSlide) {
-        const carouselItem = document.createElement('div');
-        carouselItem.className = 'carousel-item';
-
-        if (i === 1) {
-            carouselItem.classList.add('active');
-        }
-
-        const row = document.createElement('div');
-        row.className = 'row';
-
-        for (let j = 0; j < imagesPerSlide; j++) {
-            if (i + j <= totalImages) {
-                const col = document.createElement('div');
-                col.className = 'col-md-4 mb-3';
-
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.style = 'background:black';
-                const img = document.createElement('img');
-                img.className = 'img-fluid rounded';
-                img.style = 'width: 640px; height: 360px; object-fit: cover;';
-                img.alt = `Obrázok ${i + j}`;
-                img.src = `assets/images/${i + j}.jpg`;
-
-
-                card.appendChild(img);
-                col.appendChild(card);
-                row.appendChild(col);
-            }
-        }
-
-        carouselItem.appendChild(row);
-        carouselInner.appendChild(carouselItem);
+    const carouselElement = document.getElementById('carouselExampleIndicators2');
+    if (carouselElement) {
+        new bootstrap.Carousel(carouselElement, {
+            interval: false, // Vypnutie automatického posúvania
+            wrap: true       // Povolenie cyklického posúvania
+        });
     }
 
 });

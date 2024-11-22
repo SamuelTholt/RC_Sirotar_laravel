@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <script src="{{asset('assets/js/java_script.js')}}"></script>
-
     <!-- Questrial font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,6 +42,13 @@
             <ul class="list">
                 <li class="nav-item">
                     <a href="{{url('/home')}}"><i class="fa-solid fa-house" style="color: #35A0CE7F;"></i> HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#sekcie"><i class="fa-solid fa-section" style="color: #35A0CE7F;"></i> Sekcie</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#foto"><i class="fa-solid fa-image" style="color: #35A0CE7F;"></i> Fotky</a>
                 </li>
                 @if(Auth::user())
                     <div class="dropdown" style="margin-top: 10px">
@@ -89,12 +94,7 @@
         </div>
     </nav>
 </header>
-<section style="margin-top: 140px">
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
+<section id="sekcie" style="margin-top: 100px">
     <div class="container mt-5">
         @php
             $colors = ['blue-section', 'green-section', 'red-section', 'orange-section'];
@@ -134,7 +134,7 @@
                 @endif
 
                 @if($sekcia->velkost_textu)
-                    <p style="font-size: 16px"><span><b>Velkosť textu: </b></span> {{$sekcia->velkost_textu}}</p>
+                    <p style="font-size: 16px"><span><b>Veľkosť textu: </b></span> {{$sekcia->velkost_textu}}</p>
                 @endif
 
                 @if($sekcia->farba_textu)
@@ -150,7 +150,7 @@
                 @endif
 
                 @if($sekcia->velkost_podtextu)
-                    <p style="font-size: 14px"><span><b>Velkosť Podtextu: </b></span> {{$sekcia->velkost_podtextu}}</p>
+                    <p style="font-size: 14px"><span><b>Veľkosť Podtextu: </b></span> {{$sekcia->velkost_podtextu}}</p>
                 @endif
 
                 @if($sekcia->farba_podtextu)
@@ -167,6 +167,13 @@
     </div>
 </section>
 
+<section id="foto" style="margin-top: 100px">
+    <div class="container mt-5">
+            <div class="custom-section white-section">
+                <a href="{{ route('foto.create')}}" class="btn btn-success"><i class="fa-solid fa-plus"></i> Pridať fotografiu</a>
+            </div>
+    </div>
+</section>
 
 <footer class="text-white pt-4 pb-4" style="background-color:#b0cc8e">
     <div class="container">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fotografie;
 use App\Models\Sekcie;
 use Illuminate\Http\Request;
 
@@ -30,17 +31,29 @@ class SekcieController extends Controller
         $sekcia_kontakt_mail = Sekcie::find(13);
         $sekcia_kontakt_map = Sekcie::find(14);
 
+        $foto = Fotografie::all();
+
+        $program = Fotografie::where('priradena_sekcia_id', 7)->get()->first();
+
+        $images = Fotografie::where('priradena_sekcia_id', 8)->get();
+
+        $team = Fotografie::where('priradena_sekcia_id', 9)->get();
+
+
+
         return view('RCSirotar',
             compact('sekcia_about_us', 'sekcia_act_herna', 'sekcia_act_herna_deti',
                 'sekcia_act_herna_prednasky', 'sekcia_act_atrium','sekcia_act_atrium_stretnutia',
                 'sekcia_program', 'sekcia_galeria', 'sekcia_tim', 'sekcia_kontakt', 'sekcia_kontakt_adresa',
-                'sekcia_kontakt_fb', 'sekcia_kontakt_mail', 'sekcia_kontakt_map'));
+                'sekcia_kontakt_fb', 'sekcia_kontakt_mail', 'sekcia_kontakt_map', 'foto', 'images', 'team', 'program'));
     }
 
     public function index_editor()
     {
         $vsetky_sekcie = Sekcie::all();
-        return view('editor', compact('vsetky_sekcie'));
+        $foto = Fotografie::all();
+
+        return view('editor', compact('foto', 'vsetky_sekcie'));
     }
 
     public function edit($id)
@@ -68,7 +81,7 @@ class SekcieController extends Controller
         }
 
         $sekcia->save();
-        return redirect()->route('editor')->with('success', 'Sekcia bola úspešne upravená.');;
+        return redirect()->route('editor')->with('success', 'Sekcia bola úspešne upravená.');
     }
 
 }
