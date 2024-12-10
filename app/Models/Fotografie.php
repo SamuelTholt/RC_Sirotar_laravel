@@ -12,7 +12,7 @@ class Fotografie extends Model
     protected $table = 'fotografie';
     protected $primaryKey = 'id';
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = [
         'nadpis',
@@ -20,6 +20,7 @@ class Fotografie extends Model
         'nazov_suboru',
         'cesta_k_suboru',
         'priradena_sekcia_id',
+        'poradie'
     ];
 
     public function priradenaSekcia()

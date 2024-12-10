@@ -77,10 +77,16 @@
                         <option value="9" @if($foto->priradenaSekcia->id == 9) selected @endif>Tím</option>
                     </select>
                 </div>
+
+                <div class="form-group">
+                    <label for="poradie">Poradie v sekcií:</label>
+                    <input type="number" class="form-control" name="poradie" id="poradie" value="{{ $foto->poradie }}">
+                </div>
+
                 <button type="submit" class="btn btn-primary mt-3">Upraviť fotografiu</button>
 
                 <span style="margin-right: 10px;"></span>
-                <button type="button" class="btn btn-warning mt-3" onclick="window.history.back();">Naspäť</button>
+                <button type="button" class="btn btn-warning mt-3" onclick="window.location.href = '/editor'">Naspäť</button>
             </form>
         </div>
     </div>
@@ -101,7 +107,8 @@
                 contentType: false,
                 success: function(){
                     alert('Úprava fotografie bolo úspešná!');
-                    window.history.back();
+                    localStorage.setItem('reload', 'true');
+                    window.location.href = '/editor';
                 },
                 error: function(xhr){
                     alert('Úprava zlyhala!');

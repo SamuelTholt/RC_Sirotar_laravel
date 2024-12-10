@@ -33,9 +33,13 @@ class SekcieController extends Controller
 
         $foto = Fotografie::all();
 
-        $program = Fotografie::where('priradena_sekcia_id', 7)->get()->first();
+        $program = Fotografie::where('priradena_sekcia_id', 7)->get()->last();
 
-        $images = Fotografie::where('priradena_sekcia_id', 8)->get();
+        $images = Fotografie::where('priradena_sekcia_id', 8)
+            ->orderBy('poradie', 'asc')
+            ->orderBy('updated_at', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         $team = Fotografie::where('priradena_sekcia_id', 9)->get();
 
@@ -51,9 +55,12 @@ class SekcieController extends Controller
     public function index_editor()
     {
         $vsetky_sekcie = Sekcie::all();
-        $foto = Fotografie::all();
+        $foto = Fotografie::query()->orderBy('poradie', 'desc')
+        ->orderBy('updated_at', 'desc')
+        ->orderBy('created_at', 'desc')
+        ->get();
 
-        $program = Fotografie::where('priradena_sekcia_id', 7)->get()->first();
+        $program = Fotografie::where('priradena_sekcia_id', 7)->get()->last();
 
         $images = Fotografie::where('priradena_sekcia_id', 8)->get();
 

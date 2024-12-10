@@ -18,6 +18,8 @@ return new class extends Migration
 
             $table->string('nazov_suboru');
             $table->string('cesta_k_suboru');
+            $table->integer('poradie');
+            $table->timestamps();
 
             $table->unsignedBigInteger('priradena_sekcia_id');
 

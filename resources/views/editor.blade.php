@@ -186,20 +186,38 @@
                                             <div class="card d-flex flex-column">
                                                 <img src="{{ asset($image->cesta_k_suboru) }}" class="img-fluid rounded" style="width: 640px; height: 360px; object-fit: cover;" alt="{{ $image->nadpis }}">
                                                 <div class="card-body d-flex flex-column justify-content-between">
-                                                    <p class="card-text text-center" style="font-weight: bold; font-size: 20px; height: 25px">
+                                                    <p class="card-text text-center" style="font-weight: bold; font-size: 20px; height: 20px">
                                                         {{ $image->nadpis }}
                                                     </p>
                                                 </div>
 
                                                 <div class="card-body d-flex flex-column justify-content-between">
-                                                    <p class="card-text text-center" style="font-weight: bold; font-size: 18px; height: 25px">
+                                                    <p class="card-text text-center" style="font-weight: bold; font-size: 18px; height: 20px">
                                                         {{ $image->text }}
                                                     </p>
                                                 </div>
 
                                                 <div class="card-body d-flex flex-column justify-content-between">
-                                                    <p class="card-text text-center" style="font-weight: bold; font-size: 14px; height: 25px">
+                                                    <p class="card-text text-center" style="font-weight: bold; font-size: 14px; height: 20px">
                                                         {{ $image->priradenaSekcia->nadpis }}
+                                                    </p>
+                                                </div>
+
+                                                <div class="card-body d-flex flex-column justify-content-between">
+                                                    <p class="card-text text-center" style="font-weight: bold; font-size: 14px; height: 20px">
+                                                        Poradie v sekcií: {{ $image->poradie }}
+                                                    </p>
+                                                </div>
+
+                                                <div class="card-body d-flex flex-column justify-content-between">
+                                                    <p class="card-text text-center" style="font-weight: bold; font-size: 14px; height: 20px">
+                                                        Pridané: {{ $image->created_at }}
+                                                    </p>
+                                                </div>
+
+                                                <div class="card-body d-flex flex-column justify-content-between">
+                                                    <p class="card-text text-center" style="font-weight: bold; font-size: 14px; height: 20px">
+                                                        Upravené: {{ $image->updated_at }}
                                                     </p>
                                                 </div>
 
@@ -254,5 +272,12 @@
 </footer>
 
 </body>
+
+<script>
+    if(localStorage.getItem('reload') && localStorage.getItem('reload') === 'true') {
+        localStorage.removeItem('reload');
+        location.reload();
+    }
+</script>
 </html>
 

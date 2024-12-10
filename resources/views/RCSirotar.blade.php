@@ -306,7 +306,7 @@
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="our-team">
                         <div class="{{ $pictures[$index % 4] }}">
-                            <img class="img-fluid" style="width: 130px; height: 130px; object-fit: cover;" src={{asset($member->cesta_k_suboru)}}>
+                            <img class="img-fluid" style="width: 130px; height: 130px; object-fit: cover;" src={{ asset($member->cesta_k_suboru) }}>
                         </div>
                         <div class="team-content">
                             <h3 class="name">{{$member->nadpis}}</h3>

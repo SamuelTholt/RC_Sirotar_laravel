@@ -65,7 +65,7 @@
                 <button type="submit" class="btn btn-primary mt-3">Pridať fotografiu</button>
 
                 <span style="margin-right: 10px;"></span>
-                <button type="button" class="btn btn-warning mt-3" onclick="window.history.back();">Naspäť</button>
+                <button type="button" class="btn btn-warning mt-3" onclick="window.location.href = '/editor';">Naspäť</button>
             </form>
         </div>
     </div>
@@ -86,7 +86,8 @@
                 contentType: false,
                 success: function(){
                     alert('Pridanie fotografie bolo úspešné!');
-                    window.history.back();
+                    localStorage.setItem('reload', 'true');
+                    window.location.href = '/editor';
                 },
                 error: function(xhr){
                     alert('Pridanie zlyhalo!');
