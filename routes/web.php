@@ -44,6 +44,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/editor_photo/{id}', [FotografieController::class, 'update'])->name('foto.update')->middleware('isAdmin');
     Route::delete('/editor_photo/{id}', [FotografieController::class, 'destroy'])->name('foto.destroy')->middleware('isAdmin');
 
+    Route::get('/get-images/{id}', [SekcieController::class, 'getImages'])->name('get-images')->middleware('isAdmin');
+    Route::post('/update-order', [SekcieController::class, 'updateOrder'])->name('update-order')->middleware('isAdmin');
+
 
 
     Route::get('/users', [RoleController::class, 'index'])->name('role.index')->middleware('isHlavnyAdmin');

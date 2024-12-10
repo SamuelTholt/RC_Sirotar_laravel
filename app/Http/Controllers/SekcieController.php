@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Fotografie;
 use App\Models\Sekcie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SekcieController extends Controller
 {
@@ -33,41 +34,78 @@ class SekcieController extends Controller
 
         $foto = Fotografie::all();
 
+        $foto_aktivity = Fotografie::where('priradena_sekcia_id', 2)
+            ->orderBy('poradie', 'asc')
+            ->get();
+
         $program = Fotografie::where('priradena_sekcia_id', 7)->get()->last();
 
         $images = Fotografie::where('priradena_sekcia_id', 8)
             ->orderBy('poradie', 'asc')
-            ->orderBy('updated_at', 'desc')
-            ->orderBy('created_at', 'desc')
             ->get();
 
-        $team = Fotografie::where('priradena_sekcia_id', 9)->get();
-
-
+        $team = Fotografie::where('priradena_sekcia_id', 9)
+            ->orderBy('poradie', 'asc')
+            ->get();
 
         return view('RCSirotar',
             compact('sekcia_about_us', 'sekcia_act_herna', 'sekcia_act_herna_deti',
                 'sekcia_act_herna_prednasky', 'sekcia_act_atrium','sekcia_act_atrium_stretnutia',
                 'sekcia_program', 'sekcia_galeria', 'sekcia_tim', 'sekcia_kontakt', 'sekcia_kontakt_adresa',
-                'sekcia_kontakt_fb', 'sekcia_kontakt_mail', 'sekcia_kontakt_map', 'foto', 'images', 'team', 'program'));
+                'sekcia_kontakt_fb', 'sekcia_kontakt_mail', 'sekcia_kontakt_map', 'foto', 'foto_aktivity','images', 'team', 'program'));
     }
 
-    public function index_editor()
+    public function index_editor(Request $request)
     {
         $vsetky_sekcie = Sekcie::all();
-        $foto = Fotografie::query()->orderBy('poradie', 'desc')
-        ->orderBy('updated_at', 'desc')
-        ->orderBy('created_at', 'desc')
-        ->get();
 
-        $program = Fotografie::where('priradena_sekcia_id', 7)->get()->last();
+        $sekcia_id = $request->input('sekcia_id');
+        $order_by = $request->input('order_by', 'created_at'); // Default je 'created_at'
+        $order_direction = $request->input('order_direction', 'desc'); // Default je 'desc'
 
-        $images = Fotografie::where('priradena_sekcia_id', 8)->get();
 
-        $team = Fotografie::where('priradena_sekcia_id', 9)->get();
+        $fotoQuery = Fotografie::query();
 
-        return view('editor', compact('foto', 'vsetky_sekcie', 'images', 'team', 'program'));
+        if ($sekcia_id) {
+            $fotoQuery->where('priradena_sekcia_id', $sekcia_id);
+        }
+
+        if ($order_by === 'poradie') {
+            $fotoQuery->orderBy('poradie', $order_direction);
+        } elseif ($order_by === 'updated_at') {
+            $fotoQuery->orderBy('updated_at', $order_direction);
+        } else {
+            $fotoQuery->orderBy('created_at', $order_direction);
+        }
+
+        $foto = $fotoQuery->get();
+
+        return view('editor', compact('foto', 'vsetky_sekcie'));
     }
+
+    public function getImages($id)
+    {
+        $images = Fotografie::where('priradena_sekcia_id', $id)
+            ->orderBy('poradie')
+            ->get(['id', 'nadpis', 'cesta_k_suboru']);
+
+        return response()->json($images);
+    }
+
+    public function updateOrder(Request $request)
+    {
+        $order = $request->input('order');
+
+        DB::transaction(function () use ($order) {
+            foreach ($order as $item) {
+                Fotografie::where('id', $item['id'])
+                    ->update(['poradie' => $item['poradie']]);
+            }
+        });
+
+        return response()->json(['success' => true, 'message' => 'Poradie bolo aktualizované.']);
+    }
+
 
     public function edit($id)
     {

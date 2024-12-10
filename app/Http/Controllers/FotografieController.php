@@ -64,7 +64,6 @@ class FotografieController extends Controller
             'text' => 'nullable|string',
             'subor' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:5120',
             'priradena_sekcia_id' => 'required|exists:sekcie,id',
-            'poradie' => 'numeric|min:1',
         ]);
 
 
@@ -91,7 +90,6 @@ class FotografieController extends Controller
         $fotografia->nadpis = $validatedData['nadpis'];
         $fotografia->text = $validatedData['text'];
         $fotografia->priradena_sekcia_id = $validatedData['priradena_sekcia_id'];
-        $fotografia->poradie = $validatedData['poradie'];
 
 
         $fotografia->save();

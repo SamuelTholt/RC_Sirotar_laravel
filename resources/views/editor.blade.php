@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+
     <script src="{{asset('assets/js/java_script.js')}}"></script>
 
     <!-- Questrial font -->
@@ -174,6 +176,77 @@
         <div>
             <a href="{{ route('foto.create')}}" class="btn btn-success"><i class="fa-solid fa-plus"></i> Pridať fotografiu</a>
         </div>
+
+        <div>
+            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editOrderModal">
+                <i class="fa-solid fa-sort"></i> Upraviť poradie
+            </button>
+        </div>
+
+
+        <form method="GET" action="{{ route('editor') }}#foto">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label for="sekcia_id">Vyber sekciu:</label>
+                    <select name="sekcia_id" id="sekcia_id" class="form-select">
+                        <option value="">Všetky sekcie</option>
+                        <option value="2">Herňa/Átrium</option>
+                        <option value="7">Program</option>
+                        <option value="8">Galéria</option>
+                        <option value="9">Tím</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="order_by">Zoradiť podľa:</label>
+                    <select name="order_by" id="order_by" class="form-select">
+                        <option value="created_at" @if(request('order_by') == 'created_at') selected @endif>Pridané</option>
+                        <option value="updated_at" @if(request('order_by') == 'updated_at') selected @endif>Upravené</option>
+                        <option value="poradie" @if(request('order_by') == 'poradie') selected @endif>Poradie</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="order_direction">Smer zoradenia:</label>
+                    <select name="order_direction" id="order_direction" class="form-select">
+                        <option value="desc" @if(request('order_direction') == 'desc') selected @endif>Zostupne</option>
+                        <option value="asc" @if(request('order_direction') == 'asc') selected @endif>Vzostupne</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Zoradiť</button>
+
+            <a href="{{ route('editor') }}#foto" id="reset-filters" class="btn btn-secondary ms-2">Resetovať filtre</a>
+        </form>
+        <div class="modal fade" id="editOrderModal" tabindex="-1" aria-labelledby="editOrderModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editOrderModalLabel">Upraviť poradie fotografií</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <label for="sectionSelect">Vyber sekciu:</label>
+                        <select id="sectionSelect" class="form-select">
+                            <option value="2">Herňa/Átrium</option>
+                            <option value="7">Program</option>
+                            <option value="8">Galéria</option>
+                            <option value="9">Tím</option>
+                        </select>
+
+                        <div id="sortable" class="row mt-3"></div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvoriť</button>
+                        <button id="saveOrder" class="btn btn-success">Uložiť poradie</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row" style="margin-top: 10px">
             <div class="col-12">
                 <div id="carouselExampleIndicators2" class="carousel slide hidden" data-interval="false">
@@ -274,10 +347,100 @@
 </body>
 
 <script>
+    // Uloženie hodnôt pri zmene výberového poľa, vyhľadávacieho poľa alebo smeru
+    document.querySelector('select[name="sekcia_id"]').addEventListener('change', function() {
+        localStorage.setItem('editor_sekcia_id', this.value);
+    });
+
+    document.querySelector('select[name="order_by"]').addEventListener('change', function() {
+        localStorage.setItem('editor_order_by', this.value);
+    });
+
+    document.querySelector('select[name="order_direction"]').addEventListener('change', function() {
+        localStorage.setItem('editor_order_direction', this.value);
+    });
+
+    // Načítanie uložených hodnôt pri načítaní stránky
+    window.addEventListener('DOMContentLoaded', function() {
+        var sekcia_id = localStorage.getItem('editor_sekcia_id');
+        var order_by = localStorage.getItem('editor_order_by');
+        var order_direction = localStorage.getItem('editor_order_direction');
+
+        if (sekcia_id) {
+            document.querySelector('select[name="sekcia_id"]').value = sekcia_id;
+        }
+
+        if (order_by) {
+            document.querySelector('select[name="order_by"]').value = order_by;
+        }
+
+        if (order_direction) {
+            document.querySelector('select[name="order_direction"]').value = order_direction;
+        }
+    });
+
+    // Vymazanie hodnôt pri kliknutí na tlačidlo na resetovanie filtrov
+    document.querySelector('#reset-filters').addEventListener('click', function() {
+        localStorage.removeItem('editor_sekcia_id');
+        localStorage.removeItem('editor_order_by');
+        localStorage.removeItem('editor_order_direction');
+    });
+
     if(localStorage.getItem('reload') && localStorage.getItem('reload') === 'true') {
         localStorage.removeItem('reload');
         location.reload();
     }
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const sectionSelect = document.getElementById("sectionSelect");
+        const sortableContainer = document.getElementById("sortable");
+
+        sectionSelect.addEventListener("change", function () {
+            const sectionId = sectionSelect.value;
+
+            fetch(`/get-images/${sectionId}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    sortableContainer.innerHTML = "";
+                    data.forEach((image) => {
+                        const imageCard = `
+                        <div class="col-md-4 mb-3" data-id="${image.id}">
+                            <div class="card d-flex flex-column">
+                                <img src="${image.cesta_k_suboru}" class="img-fluid rounded" style="width: 240px; height: 160px; object-fit: cover" alt="${image.nadpis}">
+                            </div>
+                        </div>
+                    `;
+                        sortableContainer.insertAdjacentHTML("beforeend", imageCard);
+                    });
+                    new Sortable(sortableContainer, { animation: 150 });
+                });
+        });
+
+        document.getElementById("saveOrder").addEventListener("click", function () {
+            const order = Array.from(sortableContainer.querySelectorAll(".col-md-4"))
+                .map((item, index) => ({
+                    id: item.dataset.id,
+                    poradie: index + 1,
+                }));
+
+            fetch("{{ route('update-order') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                },
+                body: JSON.stringify({ order }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    alert("Poradie uložené!");
+                    window.location.href = '/editor#foto';
+                    location.reload();
+                })
+                .catch((error) => console.error("Chyba:", error));
+        });
+    });
 </script>
 </html>
 

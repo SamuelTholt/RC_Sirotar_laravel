@@ -77,12 +77,6 @@
                         <option value="9" @if($foto->priradenaSekcia->id == 9) selected @endif>Tím</option>
                     </select>
                 </div>
-
-                <div class="form-group">
-                    <label for="poradie">Poradie v sekcií:</label>
-                    <input type="number" class="form-control" name="poradie" id="poradie" value="{{ $foto->poradie }}">
-                </div>
-
                 <button type="submit" class="btn btn-primary mt-3">Upraviť fotografiu</button>
 
                 <span style="margin-right: 10px;"></span>

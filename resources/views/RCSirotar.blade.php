@@ -199,8 +199,7 @@
     <div class="container" style="margin-top: 200px;">
         <div class="row justify-content-center hidden">
 
-            @foreach($foto as $fotka)
-                @if($fotka->priradena_sekcia_id === 2)
+            @foreach($foto_aktivity as $fotka)
                     <div class="col-md-4 mb-4">
                         <div class="card ms-auto">
                             <img src="{{asset($fotka->cesta_k_suboru)}}" class="card-img-top" alt="{{$fotka->nadpis}}">
@@ -209,7 +208,6 @@
                             </div>
                         </div>
                     </div>
-                @endif
             @endforeach
         </div>
     </div>
