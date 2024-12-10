@@ -48,8 +48,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="subor">Obrázok:</label>
-                    <input type="file" class="form-control" name="subor" id="subor" accept="image/*" required>
+                    <label for="subor">Obrázok/ky:</label>
+                    <input type="file" class="form-control" name="subor[]" id="subor" accept="image/*" multiple required>
                 </div>
 
 

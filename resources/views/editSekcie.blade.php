@@ -166,7 +166,7 @@
                 <button type="submit" class="btn btn-primary mt-3">Uložiť</button>
 
                 <span style="margin-right: 10px;"></span>
-                <button type="button" class="btn btn-warning mt-3" onclick="window.history.back();">Naspäť</button>
+                <button type="button" class="btn btn-warning mt-3" onclick="window.location.href = '/editor'">Naspäť</button>
             </form>
         </div>
     </div>
@@ -183,7 +183,8 @@
                 data: $(this).serialize(),
                 success: function(){
                     alert('Úprava sekcie bola úspešná!');
-                    window.history.back();
+                    localStorage.setItem('reload', 'true');
+                    window.location.href = '/editor';
                 },
                 error: function(){
                     alert('Úprava zlyhala!');

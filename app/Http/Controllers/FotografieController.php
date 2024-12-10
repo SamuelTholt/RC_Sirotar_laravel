@@ -22,27 +22,34 @@ class FotografieController extends Controller
         $validatedData = $request->validate([
             'nadpis' => 'nullable|string|max:255',
             'text' => 'nullable|string',
-            'subor' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:5120',
+            'subor' => 'required|array',
+            'subor.*' => 'image|mimes:jpg,png,jpeg,gif,svg|max:5120',
             'priradena_sekcia_id' => 'required|exists:sekcie,id',
         ]);
 
-        $subor = $request->file('subor');
-        $nazovSuboru = time() . '_' . $subor->getClientOriginalName();
-        $cesta = 'assets/images/'.$nazovSuboru;
+        $subory = $request->file('subor'); // Získať všetky súbory
 
-        $subor->move(public_path('assets/images'), $nazovSuboru);
+        // Pre každý súbor v poli, urobíme spracovanie
+        foreach ($subory as $subor) {
+            $nazovSuboru = time() . '_' . $subor->getClientOriginalName();
+            $cesta = 'assets/images/' . $nazovSuboru;
 
-        $novePoradie = Fotografie::where('priradena_sekcia_id', $validatedData['priradena_sekcia_id'])
-                ->max('poradie') + 1;
+            $subor->move(public_path('assets/images'), $nazovSuboru);
 
-        $fotografia = Fotografie::create([
-            'nadpis' => $validatedData['nadpis'],
-            'text' => $validatedData['text'],
-            'nazov_suboru' => $nazovSuboru,
-            'cesta_k_suboru' => $cesta,
-            'priradena_sekcia_id' => $validatedData['priradena_sekcia_id'],
-            'poradie' => $novePoradie,
-        ]);
+            // Získame nové poradie v sekcii
+            $novePoradie = Fotografie::where('priradena_sekcia_id', $validatedData['priradena_sekcia_id'])
+                    ->max('poradie') + 1;
+
+            // Uložíme každý obrázok do databázy
+            Fotografie::create([
+                'nadpis' => $validatedData['nadpis'],
+                'text' => $validatedData['text'],
+                'nazov_suboru' => $nazovSuboru,
+                'cesta_k_suboru' => $cesta,
+                'priradena_sekcia_id' => $validatedData['priradena_sekcia_id'],
+                'poradie' => $novePoradie,
+            ]);
+        }
 
         return redirect()->route('editor')->with('success', 'Fotografia bola úspešne pridaná.');
 
