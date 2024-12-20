@@ -50,6 +50,26 @@ return new class extends Migration
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        DB::table('users')->insert([
+            'id' => 2,
+            'role_id' => 2,
+            'name' => 'testAdmin',
+            'email' => 'testadmin@test.com',
+            'password' => Hash::make('testAdmin123'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('users')->insert([
+            'id' => 3,
+            'role_id' => 3,
+            'name' => 'test',
+            'email' => 'test@test.com',
+            'password' => Hash::make('test123456'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 
     /**
