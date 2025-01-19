@@ -247,26 +247,31 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div id="carouselExampleIndicators2" class="carousel slide hidden" data-interval="false">
+                <div id="carouselExampleIndicators2" class="carousel slide hidden" data-bs-ride="carousel">
+                    <!-- Indikátory karuselu (ak ich chcete) -->
+                    <ol class="carousel-indicators">
+                        @foreach($images->chunk(2) as $index => $imageGroup)
+                            <li data-bs-target="#carouselExampleIndicators2"
+                                data-bs-slide-to="{{ $index }}"
+                                class="@if($index === 0) active @endif"></li>
+                        @endforeach
+                    </ol>
+
                     <div class="carousel-inner">
-                        @foreach($images->chunk(3) as $index => $imageGroup)
+                        <!-- Iterácia cez skupiny obrázkov -->
+                        @foreach($images->chunk(2) as $index => $imageGroup)
                             <div class="carousel-item @if($index === 0) active @endif">
                                 <div class="row">
                                     @foreach($imageGroup as $image)
-                                        <div class="col-md-4 mb-3">
+                                        <div class="col-md-6">
                                             <div class="card d-flex flex-column">
-                                                <img src="{{ asset($image->cesta_k_suboru) }}" class="img-fluid rounded" style="width: 640px; height: 360px; object-fit: cover;" alt="{{ $image->nadpis }}">
-                                                <div class="card-body d-flex flex-column justify-content-between">
-                                                    <p class="card-text text-center" style="font-weight: bold; font-size: 20px; height: 25px">
-                                                        {{ $image->nadpis }}
-                                                    </p>
-                                                </div>
-
-                                                <div class="card-body d-flex flex-column justify-content-between">
-                                                    <p class="card-text text-center" style="font-weight: bold; font-size: 18px; height: 25px">
-                                                        {{ $image->text }}
-                                                    </p>
-                                                </div>
+                                                <img src="{{ asset($image->cesta_k_suboru) }}"
+                                                     class="img-fluid rounded enlargeable-image"
+                                                     style="width: 100%; height: auto; object-fit: cover; aspect-ratio: 16/9"
+                                                     alt="{{ $image->nadpis }}"
+                                                     data-bs-toggle="modal"
+                                                     data-bs-target="#imageModal"
+                                                     data-img-src="{{ asset($image->cesta_k_suboru) }}">
                                             </div>
                                         </div>
                                     @endforeach
@@ -274,20 +279,35 @@
                             </div>
                         @endforeach
                     </div>
+
+                    <!-- Ovládacie šípky -->
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-bs-slide="prev" style="color: #35A0CE7F;">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-bs-slide="next" style="color: #35A0CE7F;">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </a>
                 </div>
-            </div>
-            <div class="text-center hidden">
-                <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-bs-slide="prev">
-                    <i class="fa fa-arrow-left"></i>
-                </a>
-                <a class="btn btn-primary mb-3" href="#carouselExampleIndicators2" role="button" data-bs-slide="next">
-                    <i class="fa fa-arrow-right"></i>
-                </a>
             </div>
         </div>
     </div>
 </section>
 
+<!-- Modal na zobrazenie obrázka -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center align-items-center">
+                <img id="modalImage" class="img-fluid rounded" alt="Fullscreen Image">
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- Tím -->
