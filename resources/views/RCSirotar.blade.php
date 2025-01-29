@@ -230,7 +230,7 @@
         </div>
 
         @if($program)
-            <div class="mb-4 hidden1">
+            <div class="mb-4">
                 <img src="{{asset($program->cesta_k_suboru)}}"
                      alt="Program herne" class="img-fluid image-style shadow-community" style="object-fit: cover;">
             </div>
